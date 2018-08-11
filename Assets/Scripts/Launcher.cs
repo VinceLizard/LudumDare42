@@ -12,10 +12,11 @@ public class Launcher : MonoBehaviour
     bool increaseForce = false;
     float forceMultiplier;
     [SerializeField] float forceMultiplierIncreaseRate;
-    [SerializeField] Slider forceSlider;
 
+	Slider forceSlider;
     private void Start()
     {
+		forceSlider = Main.Singleton.forceSlider;
         forceSlider.value = 0;
     }
 
