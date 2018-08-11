@@ -16,7 +16,7 @@ public class Launcher : MonoBehaviour
 	Slider forceSlider;
     private void Start()
     {
-		forceSlider = Main.Singleton.forceSlider;
+		forceSlider = UI.Singleton.forceSlider;
         forceSlider.value = 0;
     }
 

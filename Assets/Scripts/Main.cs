@@ -8,7 +8,6 @@ public class Main : MonoBehaviour
 	public static Main Singleton;
 
 	[SerializeField] List<GameObject> createOnAwake;
-	public Slider forceSlider;
 
 	void Awake() 
 	{
