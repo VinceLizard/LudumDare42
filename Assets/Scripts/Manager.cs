@@ -32,12 +32,14 @@ public class Manager : MonoBehaviour
 		var cucumber = Spawn(cucumberPrefab, gateEntrace);
 
 
+
 		yield return cucumber.WalkTo(middlePoolEntrance);
 
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1f);
 
 		yield return cucumber.JumpTo(middlePoolSeat);
 
+		StartCoroutine(cucumber.Expand(20f, new List<int>() { 0, 1 }));
 	}
 
 	Vegetable Spawn( Vegetable prefab, Transform spawnAt )
@@ -66,8 +68,10 @@ public class Manager : MonoBehaviour
 	{
 		if(t != null)
 		{
+			color.a = 0.5f;
 			Gizmos.color = color;
-			Gizmos.DrawWireSphere(t.position, 0.5f);
+			Gizmos.DrawSphere(t.position, 0.25f);
+			Gizmos.DrawRay(t.transform.position + new Vector3(0,0.1f,0), t.forward);
 		}
 	}
 }

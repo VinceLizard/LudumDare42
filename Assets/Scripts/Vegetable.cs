@@ -2,21 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vegetable : MonoBehaviour 
+public class Vegetable : MonoBehaviour
 {
+	[Header("Movement")]
 	[SerializeField] float walkSpeed = 6;
 	[SerializeField] float turnSpeed = 180f;
 	[SerializeField] float jumpTime = 1f;
 
+	[Header("Pain Points")]
+	[SerializeField] List<PainPoint> painPoints;
+	[SerializeField] Transform expandAnchor;
+	[SerializeField] float maxSize = 3f;
+
 
 	public IEnumerator WalkTo(Transform dest)
 	{
-		yield return WalkTo(dest.position);
+		yield return MoveTo(dest.position);
 
 		yield return TurnTo(dest.rotation);
 	}
 
-	public IEnumerator WalkTo(Vector3 dest)
+	private IEnumerator MoveTo(Vector3 dest)
 	{
 		while (true)
 		{
@@ -33,7 +39,7 @@ public class Vegetable : MonoBehaviour
 		}
 	}
 
-	public IEnumerator TurnTo(Quaternion dest)
+	private IEnumerator TurnTo(Quaternion dest)
 	{
 		while (true)
 		{
@@ -76,4 +82,77 @@ public class Vegetable : MonoBehaviour
 			}
 		}
 	}
+
+	private bool isExpanding = false;
+	private float _expandAmount = 0;
+	private float expandAmount
+	{
+		get
+		{
+			return _expandAmount;
+		}
+		set
+		{
+			if ( !Mathf.Approximately(_expandAmount, value) )
+			{
+				_expandAmount = value;
+				expandAnchor.localScale = Vector3.one * Mathf.Lerp(1f, maxSize, _expandAmount);
+			}
+		}
+	}
+	public IEnumerator Expand(float duration, List<int> painPointIndices)
+	{
+		foreach(var i in painPointIndices)
+		{
+			painPoints[i].AddPain();
+		}
+		isExpanding = true;
+		float startTime = Time.time;
+		while(true)
+		{
+			float timePassed = (Time.time - startTime);
+			if (!isExpanding)
+			{
+				break;
+			}
+			else if( timePassed >= duration )
+			{
+				Main.Singleton.GameOver();
+				break;
+			}
+			else
+			{
+				expandAmount = timePassed / duration;
+
+			}
+			yield return null;
+		}
+	}
+
+	private void Update()
+	{
+		CheckShrinkage();
+
+		if(!isExpanding)
+		{
+			expandAmount = Mathf.MoveTowards(expandAmount, 0f, Time.deltaTime);
+		}
+	}
+
+	void CheckShrinkage()
+	{
+		if (isExpanding)
+		{
+			foreach (var pp in this.painPoints)
+			{
+				if (pp.PainAmount > 0)
+				{
+					return;
+				}
+			}
+
+			isExpanding = false;
+		}
+	}
+
 }

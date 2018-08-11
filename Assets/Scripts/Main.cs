@@ -17,4 +17,9 @@ public class Main : MonoBehaviour
 			GameObject.Instantiate(go);
 	}
 
+
+	public void GameOver()
+	{
+		UI.Singleton.ShowGameOver();
+	}
 }
