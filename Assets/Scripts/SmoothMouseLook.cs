@@ -122,6 +122,7 @@ public class SmoothMouseLook : MonoBehaviour
 
 	void Start()
 	{
+        Cursor.visible = false;
 		Rigidbody rb = GetComponent<Rigidbody>();
 		if (rb)
 			rb.freezeRotation = true;
