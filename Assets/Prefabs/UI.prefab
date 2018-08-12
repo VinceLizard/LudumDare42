@@ -227,6 +227,7 @@ MonoBehaviour:
   forceSlider: {fileID: 114887597684400242}
   gameOverWindow: {fileID: 1060103873458310}
   resetGame: {fileID: 114963975073071532}
+  sliderBackground: {fileID: 114819905980443554}
 --- !u!114 &114158514147884504
 MonoBehaviour:
   m_ObjectHideFlags: 1
