@@ -6,6 +6,12 @@ public class Manager : MonoBehaviour
 {
 	[Header("Vegetables")]
 	[SerializeField] Vegetable cucumberPrefab;
+	[SerializeField] Vegetable tomatoPrefab;
+	[SerializeField] Vegetable peachPrefab;
+	[SerializeField] Vegetable pearPrefab;
+	[SerializeField] Vegetable bananaPrefab;
+	[SerializeField] Vegetable broccolliPrefab;
+	[SerializeField] Vegetable potatoPrefab;
 
 	[Header("Entrances")]
 	[SerializeField] Transform gateEntrace;
@@ -28,7 +34,14 @@ public class Manager : MonoBehaviour
 	{
 		//Time.timeScale = 3f;
 		StartCoroutine(CucumberScript());
+
+		//StartCoroutine(BananaScript());
     }
+
+	IEnumerator BananaScript()
+	{
+		yield return null;
+	}
 
 
 	IEnumerator CucumberScript()

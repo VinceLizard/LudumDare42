@@ -372,6 +372,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cucumberPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
     type: 2}
+  tomatoPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+    type: 2}
+  peachPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+    type: 2}
+  pearPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+    type: 2}
+  bananaPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+    type: 2}
+  broccolliPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+    type: 2}
+  potatoPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+    type: 2}
   gateEntrace: {fileID: 4792418394000418}
   lobbyEntrace: {fileID: 4460585685488790}
   sideDoorEntrace: {fileID: 4560426998535830}
