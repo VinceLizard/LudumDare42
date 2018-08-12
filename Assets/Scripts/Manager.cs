@@ -45,14 +45,13 @@ public class Manager : MonoBehaviour
 	IEnumerator Start()
 	{
 		//Time.timeScale = 3f;
-        /*
-		yield return CucumberScript();
+        
+		//yield return CucumberScript();
 		yield return TomatoScript();
 		yield return PeachStrawberryScript();
 		yield return BananaScript();
 		yield return BroccoliScript();
-        */
-		yield return PotatoScript();
+        yield return PotatoScript();
     }
 
 
@@ -141,7 +140,7 @@ public class Manager : MonoBehaviour
 
 		yield return kidBTomato.WalkTo(rightPoolEntrance);
 
-		kidBTomato.Face.LookAt(cucumber);
+		kidBTomato.Face.LookAt(kidATomato);
 
 		yield return Dialogue.Create(kidBTomato, "You have to wait for mom!");
 

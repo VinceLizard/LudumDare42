@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 4727987308230498}
   - component: {fileID: 114304215185689354}
   - component: {fileID: 114865784078500928}
+  - component: {fileID: 114693947054766558}
   m_Layer: 0
   m_Name: FemaleFace
   m_TagString: Untagged
@@ -924,6 +925,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1762150247535632
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4303145172613582}
+  m_Layer: 0
+  m_Name: eyeCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1764216418979930
 GameObject:
   m_ObjectHideFlags: 1
@@ -1188,6 +1204,7 @@ Transform:
   m_Children:
   - {fileID: 4635169742794884}
   - {fileID: 4457345576536650}
+  - {fileID: 4303145172613582}
   m_Father: {fileID: 4856272153276238}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1445,6 +1462,19 @@ Transform:
   m_Father: {fileID: 4324298731606088}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4303145172613582
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762150247535632}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.1335, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4080341560127068}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4323492391743382
 Transform:
   m_ObjectHideFlags: 1
@@ -2609,6 +2639,26 @@ MonoBehaviour:
   mouthAnimator: {fileID: 95961883765138822}
   hurtFace: {fileID: 1700054585308792}
   normalFace: {fileID: 1167388256167910}
+  lookAtThis: {fileID: 114693947054766558}
+--- !u!114 &114693947054766558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1148015174811576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ad05d0e50a0854cb1b1d12765d0feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookTarget: {fileID: 0}
+  eyesAndLids:
+  - {fileID: 4635169742794884}
+  - {fileID: 4457345576536650}
+  root: {fileID: 4303145172613582}
+  degreesPerSecond: 240
+  yRotMaxDegrees: 60
+  xRotMaxDegrees: 30
 --- !u!114 &114865784078500928
 MonoBehaviour:
   m_ObjectHideFlags: 1
