@@ -39,8 +39,12 @@ public class Manager : MonoBehaviour
 
 		yield return cucumber.JumpTo(middlePoolSeat);
 
-		StartCoroutine(cucumber.Expand(20f, new List<int>() { 0, 1 }));
-	}
+    yield return new WaitForSeconds(1f);
+
+    StartCoroutine(cucumber.Expand(20f, new List<int>() { 0, 1 }));
+
+        yield return cucumber.JumpTo(middlePoolEntrance);
+    }
 
 	Vegetable Spawn( Vegetable prefab, Transform spawnAt )
 	{
