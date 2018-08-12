@@ -46,12 +46,13 @@ public class Manager : MonoBehaviour
 	{
 		//Time.timeScale = 3f;
         
-		//yield return CucumberScript();
+		yield return CucumberScript();
 		yield return TomatoScript();
 		yield return PeachStrawberryScript();
 		yield return BananaScript();
 		yield return BroccoliScript();
         yield return PotatoScript();
+
     }
 
 
@@ -116,15 +117,12 @@ public class Manager : MonoBehaviour
 
 		cucumber.Face.StopLooking();
 
-		yield return cucumber.WalkTo(leftPoolSeat);
+		yield return cucumber.WalkTo(farLeftPoolSeat);
 	}
 
 	IEnumerator TomatoScript()
 	{
 		Stu.Singleton.ToggleThrowing(false);
-
-		if(cucumber == null)
-			cucumber = Spawn(cucumberPrefab, leftPoolSeat);
 
 		if(kidATomato == null)
 			kidATomato = Spawn(cherryTomatoPrefab, gateEntrace);
@@ -191,18 +189,84 @@ public class Manager : MonoBehaviour
 
 	IEnumerator PeachStrawberryScript()
 	{
-		yield return null;
-	}
+        //temporary positioning
+        yield return kidBTomato.JumpTo(gateEntrace, true);
+        yield return kidATomato.JumpTo(gateEntrace, true);
+        yield return momTomato.JumpTo(gateEntrace, true);
+
+        if (peach == null)
+            peach = Spawn(peachPrefab, lobbyEntrace);
+
+        if (pear == null)
+            pear = Spawn(pearPrefab, lobbyEntrace);
+
+        yield return peach.JumpTo(rightPoolSeat);
+
+        yield return pear.JumpTo(middlePoolSeat);
+    }
 
 	IEnumerator BananaScript()
 	{
-		yield return null;
-	}
+        if (banana == null)
+            banana = Spawn(bananaPrefab, lobbyEntrace);
+
+        yield return banana.JumpTo(leftPoolSeat);
+    }
 
 	IEnumerator BroccoliScript()
 	{
-		yield return null;
-	}
+        if (broccolli == null)
+            broccolli = Spawn(broccolliPrefab, rightPoolEntrance);
+
+        yield return broccolli.WalkTo(rightPoolEntrance);
+
+        yield return Dialogue.Create(broccolli, "Oh hello, it's quite the party in here");
+
+        yield return broccolli.JumpTo(farRightPoolSeat);
+
+        yield return Dialogue.Create(banana, "WOOOO we love to party!!! right ladies??");
+
+        yield return new WaitForSeconds(2f);
+
+        yield return Dialogue.Create(peach, "I mean, I guess I would if I didn't have so much social anxiety");
+
+        yield return Dialogue.Create(pear, "You say that, but what if you don't have social anxiety and just hate everyone you meet?");
+
+        yield return new WaitForSeconds(1f);
+
+        yield return Dialogue.Create(peach, "fair point, but that potato really puts me over the edge...");
+
+        yield return new WaitForSeconds(1f);
+
+        yield return Dialogue.Create(broccolli, "The water is nice...");
+
+        StartCoroutine(broccolli.Expand(60f, new List<int>() { 0, 1}));
+
+        yield return Dialogue.Create(broccolli, "woop, spoke too soon");
+
+        StartCoroutine(cucumber.Expand(60f, new List<int>() { 0 }));
+
+        yield return Dialogue.Create(cucumber, "Ack! us too");
+
+        StartCoroutine(banana.Expand(60f, new List<int>() { 0 }));
+
+        StartCoroutine(peach.Expand(60f, new List<int>() { 0 }));
+
+        StartCoroutine(pear.Expand(60f, new List<int>() { 0 }));
+
+        yield return broccolli.WaitTillShrunk();
+
+        yield return cucumber.WaitTillShrunk();
+
+        yield return banana.WaitTillShrunk();
+
+        yield return peach.WaitTillShrunk();
+
+        yield return pear.WaitTillShrunk();
+
+        yield return Dialogue.Create(broccolli, "Impressive!");
+
+    }
 
 	IEnumerator PotatoScript()
 	{
@@ -211,9 +275,31 @@ public class Manager : MonoBehaviour
         if (potato == null)
 			    potato = Spawn(potatoPrefab, gateEntrace);
 
+        yield return Dialogue.Create(pear, "Oh no...");
+
         yield return potato.WalkTo(middlePoolEntrance);
 
         yield return Dialogue.Create(potato, "Hot potato comin' through!");
+
+        yield return pear.JumpTo(leftPoolEntrance);
+
+        yield return peach.JumpTo(rightPoolEntrance);
+
+        yield return pear.WalkTo(lobbyEntrace);
+
+        yield return peach.WalkTo(lobbyEntrace);
+
+        yield return banana.JumpTo(leftPoolEntrance);
+    
+        yield return broccolli.JumpTo(rightPoolEntrance);
+
+        yield return banana.WalkTo(lobbyEntrace);
+
+        yield return broccolli.WalkTo(sideDoorEntrace);
+
+        yield return cucumber.JumpTo(leftPoolEntrance);
+
+        yield return cucumber.WalkTo(gateEntrace);
 
         yield return potato.JumpTo(middlePoolSeat);
 
