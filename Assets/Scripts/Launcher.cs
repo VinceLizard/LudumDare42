@@ -29,7 +29,6 @@ public class Launcher : MonoBehaviour
 		forceSlider = UI.Singleton.forceSlider;
         forceSlider.value = 0;
         forceMultiplier = FORCEMULTIPLIERSTARTVALUE;
-
     }
 
     void Update () {
