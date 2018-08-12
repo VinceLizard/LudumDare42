@@ -12,7 +12,7 @@ public class Explode : MonoBehaviour {
         Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
         foreach (Rigidbody rb in rigidbodies)
         {
-            rb.AddExplosionForce(300, explosionPos, 10, 1f);
+            rb.AddExplosionForce(100, explosionPos, 10, 1f);
         }
 	}
 	

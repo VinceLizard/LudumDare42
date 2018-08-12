@@ -208,7 +208,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1538310817010196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.43, y: 0, z: 1.44}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4354203573729930}
@@ -426,6 +426,8 @@ MonoBehaviour:
     type: 2}
   faceAnchor: {fileID: 4589035344967776}
   animator: {fileID: 95188405584252972}
+  explodingVeg: {fileID: 1930097748263878, guid: 7bc02d2fdb42b400dbe37d999ab6221c,
+    type: 2}
 --- !u!114 &114203330169956434
 MonoBehaviour:
   m_ObjectHideFlags: 1
