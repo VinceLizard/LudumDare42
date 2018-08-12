@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1625029707552556
 GameObject:
   m_ObjectHideFlags: 1
@@ -227,6 +227,7 @@ MonoBehaviour:
   forceSlider: {fileID: 114887597684400242}
   gameOverWindow: {fileID: 1060103873458310}
   resetGame: {fileID: 114963975073071532}
+  sliderBackground: {fileID: 114819905980443554}
 --- !u!114 &114158514147884504
 MonoBehaviour:
   m_ObjectHideFlags: 1

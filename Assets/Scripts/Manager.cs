@@ -24,27 +24,73 @@ public class Manager : MonoBehaviour
 	[SerializeField] Transform rightPoolSeat;
 	[SerializeField] Transform farRightPoolSeat;
 
-	private IEnumerator Start()
+	void Start()
 	{
+		//Time.timeScale = 3f;
+		StartCoroutine(CucumberScript());
+    }
+
+
+	IEnumerator CucumberScript()
+	{
+		Stu.Singleton.ToggleThrowing(false);
 
 		yield return new WaitForSeconds(1f);
 
 		var cucumber = Spawn(cucumberPrefab, gateEntrace);
 
-
-
 		yield return cucumber.WalkTo(middlePoolEntrance);
+
+		yield return new WaitForSeconds(1f);
+
+		yield return Dialogue.Create(cucumber, "Hey there!", 2f);
+
+		yield return new WaitForSeconds(1f);
+
+		yield return Dialogue.Create(cucumber, "How's the water?", 2f);
 
 		yield return new WaitForSeconds(1f);
 
 		yield return cucumber.JumpTo(middlePoolSeat);
 
-    yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(1f);
 
-    StartCoroutine(cucumber.Expand(20f, new List<int>() { 0, 1 }));
+		yield return Dialogue.Create(cucumber, "I'm Paul. What's your name?", 3f);
 
-        yield return cucumber.JumpTo(middlePoolEntrance);
-    }
+		yield return new WaitForSeconds(1f);
+
+		yield return Dialogue.Create(cucumber, "Stu, huh?", 2f);
+
+		yield return new WaitForSeconds(1f);
+
+		yield return Dialogue.Create(cucumber, "Oh man Stu, I'm getting a little puffy in here.", 3f);
+
+		StartCoroutine(cucumber.Expand(30f, new List<int>() { 0 }));
+
+		yield return new WaitForSeconds(1f);
+
+		StartCoroutine(Dialogue.Create(cucumber, "Toss me some saline solution will ya?", 3f));
+
+		yield return new WaitForSeconds(1f);
+
+		Stu.Singleton.ToggleThrowing(true);
+
+
+		yield return cucumber.WaitTillShrunk();
+
+		yield return Dialogue.Create(cucumber, "Oh god, thanks. That felt great!", 3f);
+
+		yield return new WaitForSeconds(1f);
+
+		yield return Dialogue.Create(cucumber, "Catch you later Stu!", 3f);
+
+		yield return cucumber.TurnTo(middlePoolSeat.rotation, true);
+		yield return cucumber.JumpTo(middlePoolEntrance, true);
+
+		yield return cucumber.WalkTo(lobbyEntrace, true);
+
+		GameObject.Destroy(cucumber.gameObject);
+	}
 
 	Vegetable Spawn( Vegetable prefab, Transform spawnAt )
 	{

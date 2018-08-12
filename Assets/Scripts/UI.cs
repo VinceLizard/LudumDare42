@@ -11,6 +11,7 @@ public class UI : MonoBehaviour {
 	public Slider forceSlider;
 	public GameObject gameOverWindow;
 	public Button resetGame;
+    public Image sliderBackground;
 
 	void Awake () 
 	{
@@ -20,6 +21,11 @@ public class UI : MonoBehaviour {
 		{
 			SceneManager.LoadScene(0);
 		});
+	}
+
+	void OnDestroy()
+	{
+		Singleton = null;
 	}
 
 
