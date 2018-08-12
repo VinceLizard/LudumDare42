@@ -1,38 +1,16 @@
 fileFormatVersion: 2
-guid: 68ad2ae5115ad4a0c9ee5ffb3a6c39e7
+guid: af4cbb40bc59f87428e6697a1083931c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Camera
-    100002: Cylinder
-    100004: //RootNode
-    100006: Lamp
-    100008: Building
-    100010: Pool
-    400000: Camera
-    400002: Cylinder
-    400004: //RootNode
-    400006: Lamp
-    400008: Building
-    400010: Pool
-    2000000: Camera
-    2100000: mat_hot_tub
-    2100002: mat_building
-    2300000: Cylinder
-    2300002: //RootNode
-    2300004: Building
-    2300006: Pool
-    3300000: Cylinder
-    3300002: //RootNode
-    3300004: Building
-    3300006: Pool
-    4300000: Cylinder
-    4300002: Building
-    4300004: Pool
-    6400000: //RootNode
-    6400002: Building
-    6400004: Pool
-    10800000: Lamp
+    100000: default
+    100002: //RootNode
+    400000: default
+    400002: //RootNode
+    2100000: defaultMat
+    2300000: default
+    3300000: default
+    4300000: default
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -66,7 +44,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
