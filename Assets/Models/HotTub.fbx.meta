@@ -18,6 +18,16 @@ ModelImporter:
     100024: Mountains
     100026: AltBuilding.001
     100028: AltBuilding.002
+    100030: Cube
+    100032: Gate.003
+    100034: Gate.004
+    100036: Door
+    100038: Door.001
+    100040: Stairs
+    100042: Gate.005
+    100044: Gate.006
+    100046: Gate.007
+    100048: Gate.008
     400000: Camera
     400002: Cylinder
     400004: //RootNode
@@ -33,6 +43,16 @@ ModelImporter:
     400024: Mountains
     400026: AltBuilding.001
     400028: AltBuilding.002
+    400030: Cube
+    400032: Gate.003
+    400034: Gate.004
+    400036: Door
+    400038: Door.001
+    400040: Stairs
+    400042: Gate.005
+    400044: Gate.006
+    400046: Gate.007
+    400048: Gate.008
     2000000: Camera
     2100000: mat_hot_tub
     2100002: mat_building
@@ -54,6 +74,16 @@ ModelImporter:
     2300020: Mountains
     2300022: AltBuilding.001
     2300024: AltBuilding.002
+    2300026: Cube
+    2300028: Gate.003
+    2300030: Gate.004
+    2300032: Door
+    2300034: Door.001
+    2300036: Stairs
+    2300038: Gate.005
+    2300040: Gate.006
+    2300042: Gate.007
+    2300044: Gate.008
     3300000: Cylinder
     3300002: //RootNode
     3300004: Building
@@ -67,6 +97,16 @@ ModelImporter:
     3300020: Mountains
     3300022: AltBuilding.001
     3300024: AltBuilding.002
+    3300026: Cube
+    3300028: Gate.003
+    3300030: Gate.004
+    3300032: Door
+    3300034: Door.001
+    3300036: Stairs
+    3300038: Gate.005
+    3300040: Gate.006
+    3300042: Gate.007
+    3300044: Gate.008
     4300000: Cylinder
     4300002: Building
     4300004: Pool
@@ -79,6 +119,15 @@ ModelImporter:
     4300018: Mountains
     4300020: AltBuilding.002
     4300022: AltBuilding.001
+    4300024: Cube
+    4300026: Gate.004
+    4300028: Gate.003
+    4300030: Door.001
+    4300032: Door
+    4300034: Stairs
+    4300036: Gate.008
+    4300038: Gate.007
+    4300040: Gate.005
     6400000: //RootNode
     6400002: Building
     6400004: Pool
@@ -91,8 +140,83 @@ ModelImporter:
     6400018: Mountains
     6400020: AltBuilding.001
     6400022: AltBuilding.002
+    6400024: Cube
+    6400026: Gate.003
+    6400028: Gate.004
+    6400030: Door
+    6400032: Door.001
+    6400034: Stairs
+    6400036: Gate.005
+    6400038: Gate.006
+    6400040: Gate.007
+    6400042: Gate.008
     10800000: Lamp
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_building
+    second: {fileID: 2100000, guid: df3d95e356ba64c939af9bee04b5c97f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_building_inside
+    second: {fileID: 2100000, guid: 77a8f49da21d74b79a7fccf664ea0662, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_building_trim
+    second: {fileID: 2100000, guid: b620a46ec4f854f5995eb44fa44e5655, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_door
+    second: {fileID: 2100000, guid: cbd51b9d1f6184881bb9bf9c77ced0b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_door_trim
+    second: {fileID: 2100000, guid: 25235107859bf4f8b9c9fdf293a2ac8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_gate
+    second: {fileID: 2100000, guid: e8ec6664fac564b748e1bd26e0d525a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_ground
+    second: {fileID: 2100000, guid: f656d8617c1a54efbbf5a961935a40e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_hot_tub
+    second: {fileID: 2100000, guid: b6b76b588378049e38ba879019ea5fba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_hot_tub_trim
+    second: {fileID: 2100000, guid: d33cc2bc2ab3c4e31803883e56b7c53c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_mountains
+    second: {fileID: 2100000, guid: 7ec775de547934bbfa60c238c7e1b90e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_pool_ground
+    second: {fileID: 2100000, guid: 14bd0cde957ef4aca87e4a401d79334c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_stair_rails
+    second: {fileID: 2100000, guid: 9b52ff4632d3f45388fdd0e9ce42f3a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_stairs
+    second: {fileID: 2100000, guid: ad9670c3ed61f48028d2b66ee3f16e79, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
