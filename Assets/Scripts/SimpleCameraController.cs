@@ -15,6 +15,7 @@ namespace UnityTemplateProjects
             public float MAXPITCH = 40;//up and down
             public float MAXYAW = 80;//left to right
 
+
             public void SetFromTransform(Transform t)
             {
                 pitch = t.eulerAngles.x;
