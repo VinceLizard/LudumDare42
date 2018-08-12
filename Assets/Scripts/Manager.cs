@@ -26,7 +26,7 @@ public class Manager : MonoBehaviour
 
 	void Start()
 	{
-		Time.timeScale = 3f;
+		//Time.timeScale = 3f;
 		StartCoroutine(CucumberScript());
     }
 
