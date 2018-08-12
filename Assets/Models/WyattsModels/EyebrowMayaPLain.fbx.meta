@@ -1,25 +1,36 @@
 fileFormatVersion: 2
-guid: c58d26806c8e14e46bd6f8d9b048351a
+guid: 02bcd208d5d22cf488fee82e690c3979
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cucumber:Mesh
-    100002: //RootNode
-    100004: joint1
-    100006: joint2
-    100008: joint3
-    100010: joint4
-    400000: Cucumber:Mesh
-    400002: //RootNode
-    400004: joint1
-    400006: joint2
-    400008: joint3
-    400010: joint4
+    100000: //RootNode
+    100002: Eyebrows:EyebrowGroup0
+    100004: Eyebrows:EyebrowGroup1
+    100006: joint1
+    100008: joint2
+    100010: joint3
+    100012: joint4
+    100014: joint5
+    100016: joint6
+    100018: joint7
+    100020: joint8
+    400000: //RootNode
+    400002: Eyebrows:EyebrowGroup0
+    400004: Eyebrows:EyebrowGroup1
+    400006: joint1
+    400008: joint2
+    400010: joint3
+    400012: joint4
+    400014: joint5
+    400016: joint6
+    400018: joint7
+    400020: joint8
     2100000: phong1
-    4300000: Cucumber:Mesh
-    7400000: Take 001
+    4300000: Eyebrows:EyebrowGroup1
+    4300002: Eyebrows:EyebrowGroup0
     9500000: //RootNode
-    13700000: Cucumber:Mesh
+    13700000: Eyebrows:EyebrowGroup0
+    13700002: Eyebrows:EyebrowGroup1
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -33,8 +44,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'LeftUpperLeg' not found\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -42,7 +52,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -53,7 +63,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -73,11 +83,11 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
@@ -96,7 +106,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
