@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayIntervalSecs: 0.05
-  charsPerDisplay: 1
+  charsPerDisplay: 2
   useWordBounds: 0
   pauseDelaySecs: 0.25
   label: {fileID: 114582235794011072}

@@ -23,6 +23,11 @@ public class UI : MonoBehaviour {
 		});
 	}
 
+	void OnDestroy()
+	{
+		Singleton = null;
+	}
+
 
 	public void ShowGameOver()
 	{

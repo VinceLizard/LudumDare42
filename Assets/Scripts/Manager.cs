@@ -33,6 +33,8 @@ public class Manager : MonoBehaviour
 
 	IEnumerator CucumberScript()
 	{
+		Stu.Singleton.ToggleThrowing(false);
+
 		yield return new WaitForSeconds(1f);
 
 		var cucumber = Spawn(cucumberPrefab, gateEntrace);
@@ -67,7 +69,12 @@ public class Manager : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 
-		yield return Dialogue.Create(cucumber, "Toss me some saline solution will ya?", 3f);
+		StartCoroutine(Dialogue.Create(cucumber, "Toss me some saline solution will ya?", 3f));
+
+		yield return new WaitForSeconds(1f);
+
+		Stu.Singleton.ToggleThrowing(true);
+
 
 		yield return cucumber.WaitTillShrunk();
 

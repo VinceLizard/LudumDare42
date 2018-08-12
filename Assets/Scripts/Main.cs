@@ -9,14 +9,19 @@ public class Main : MonoBehaviour
 
 	[SerializeField] List<GameObject> createOnAwake;
 
-	void Awake() 
+	void Awake()
 	{
 		Singleton = this;
 
 		foreach (var go in createOnAwake)
 			GameObject.Instantiate(go);
+	
 	}
 
+ 	void OnDestroy()
+	{
+		Singleton = null;
+	}
 
 	public void GameOver()
 	{
