@@ -4,12 +4,21 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Hemi
+    100004: HemiBasic
     400000: //RootNode
+    400002: Hemi
+    400004: HemiBasic
     2100000: No Name
     2300000: //RootNode
+    2300002: Hemi
+    2300004: HemiBasic
     3300000: //RootNode
+    3300002: Hemi
+    3300004: HemiBasic
     4300000: Sphere
     4300002: Hemi
+    4300004: HemiBasic
   externalObjects: {}
   materials:
     importMaterials: 0

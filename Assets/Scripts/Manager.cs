@@ -30,82 +30,29 @@ public class Manager : MonoBehaviour
 	[SerializeField] Transform rightPoolSeat;
 	[SerializeField] Transform farRightPoolSeat;
 
-	void Start()
+
+	Vegetable cucumber;
+	Vegetable kidATomato;
+	Vegetable kidBTomato;
+	Vegetable momTomato;
+	Vegetable peach;
+	Vegetable pear;
+	Vegetable banana;
+	Vegetable broccolli;
+	Vegetable potato;
+
+	IEnumerator Start()
 	{
 		//Time.timeScale = 3f;
-		//StartCoroutine(CucumberScript());
 
-        //StartCoroutine(BananaScript());
-
-        StartCoroutine(TomatoScript());
+		yield return CucumberScript();
+		yield return TomatoScript();
+		yield return PeachStrawberryScript();
+		yield return BananaScript();
+		yield return BroccoliScript();
+		yield return PotatoScript();
     }
 
-	IEnumerator BananaScript()
-	{
-		yield return null;
-	}
-
-    IEnumerator TomatoScript()
-    {
-        Stu.Singleton.ToggleThrowing(false);
-
-        var cucumber = Spawn(cucumberPrefab, leftPoolSeat);
-
-        var kidATomato = Spawn(cucumberPrefab, gateEntrace);
-
-        yield return kidATomato.WalkTo(rightPoolEntrance);
-
-        yield return Dialogue.Create(kidATomato, "Cannonball!");
-
-        yield return kidATomato.JumpTo(rightPoolSeat);
-
-        var kidBTomato = Spawn(cucumberPrefab, gateEntrace);
-
-        yield return kidBTomato.WalkTo(rightPoolEntrance);
-
-        yield return Dialogue.Create(kidBTomato, "You have to wait for mom!");
-
-        var momTomato = Spawn(cucumberPrefab, gateEntrace);
-
-        yield return momTomato.WalkTo(middlePoolEntrance);
-
-        yield return Dialogue.Create(momTomato, "Bobby, there are other people in the hottub.");
-
-        yield return Dialogue.Create(cucumber, "It's fine. Hop on in.");
-
-        yield return momTomato.JumpTo(middlePoolSeat);
-
-        yield return kidBTomato.JumpTo(farRightPoolSeat);
-
-        yield return Dialogue.Create(kidBTomato, "It's too hot!");
-
-        yield return kidBTomato.TurnTo(farRightPoolSeat.rotation, true);
-
-        yield return kidBTomato.JumpTo(rightPoolEntrance, true);
-
-        yield return kidBTomato.TurnTo(rightPoolEntrance.rotation, false);
-
-        yield return Dialogue.Create(momTomato, "It feels so good. Oh my!");
-
-        StartCoroutine(momTomato.Expand(60f, new List<int>() { 0, 1 }));
-
-        yield return Dialogue.Create(cucumber, "Here we go. Stu, can you help?");
-
-        Stu.Singleton.ToggleThrowing(true);
-
-        StartCoroutine(cucumber.Expand(60f, new List<int>() { 0, 1 }));
-
-        yield return Dialogue.Create(kidATomato, "Mom looks like an elephant!");
-        yield return Dialogue.Create(kidBTomato, "Whoah, Mom is bigger than Jupiter!");
-        yield return Dialogue.Create(momTomato, "Children! Don't be rude.");
-
-        yield return momTomato.WaitTillShrunk();
-
-        yield return cucumber.WaitTillShrunk();
-
-        yield return Dialogue.Create(momTomato, "Thank you so much.");
-
-    }
 
 	IEnumerator CucumberScript()
 	{
@@ -113,7 +60,8 @@ public class Manager : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 
-		var cucumber = Spawn(cucumberPrefab, gateEntrace);
+		if (cucumber == null)
+			cucumber = Spawn(cucumberPrefab, lobbyEntrace);
 
 		yield return cucumber.WalkTo(middlePoolEntrance);
 
@@ -155,17 +103,100 @@ public class Manager : MonoBehaviour
 
 		yield return Dialogue.Create(cucumber, "Oh god, thanks. That felt great!");
 
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(2f);
 
-		yield return Dialogue.Create(cucumber, "Catch you later Stu!", 3f);
+		yield return Dialogue.Create(cucumber, "Looks like we've got company!", 3f);
 
-		yield return cucumber.TurnTo(middlePoolSeat.rotation, true);
-		yield return cucumber.JumpTo(middlePoolEntrance, true);
-
-		yield return cucumber.WalkTo(lobbyEntrace, true);
-
-		GameObject.Destroy(cucumber.gameObject);
+		yield return cucumber.WalkTo(leftPoolSeat);
 	}
+
+	IEnumerator TomatoScript()
+	{
+		Stu.Singleton.ToggleThrowing(false);
+
+		if(cucumber == null)
+			cucumber = Spawn(cucumberPrefab, leftPoolSeat);
+
+		if(kidATomato == null)
+			kidATomato = Spawn(cucumberPrefab, gateEntrace);
+
+		yield return kidATomato.WalkTo(rightPoolEntrance);
+
+		yield return Dialogue.Create(kidATomato, "Cannonball!");
+
+		yield return kidATomato.JumpTo(rightPoolSeat);
+
+		if(kidBTomato == null)
+			kidBTomato = Spawn(cucumberPrefab, gateEntrace);
+
+		yield return kidBTomato.WalkTo(rightPoolEntrance);
+
+		yield return Dialogue.Create(kidBTomato, "You have to wait for mom!");
+
+		if(momTomato == null)
+			momTomato = Spawn(cucumberPrefab, gateEntrace);
+
+		yield return momTomato.WalkTo(middlePoolEntrance);
+
+		yield return Dialogue.Create(momTomato, "Bobby, there are other people in the hottub.");
+
+		yield return Dialogue.Create(cucumber, "It's fine. Hop on in.");
+
+		yield return momTomato.JumpTo(middlePoolSeat);
+
+		yield return kidBTomato.JumpTo(farRightPoolSeat);
+
+		yield return Dialogue.Create(kidBTomato, "It's too hot!");
+
+		yield return kidBTomato.TurnTo(farRightPoolSeat.rotation, true);
+
+		yield return kidBTomato.JumpTo(rightPoolEntrance, true);
+
+		yield return kidBTomato.TurnTo(rightPoolEntrance.rotation, false);
+
+		yield return Dialogue.Create(momTomato, "It feels so good. Oh my!");
+
+		StartCoroutine(momTomato.Expand(60f, new List<int>() { 0, 1 }));
+
+		yield return Dialogue.Create(cucumber, "Here we go. Stu, can you help?");
+
+		Stu.Singleton.ToggleThrowing(true);
+
+		StartCoroutine(cucumber.Expand(60f, new List<int>() { 0, 1 }));
+
+		yield return Dialogue.Create(kidATomato, "Mom looks like an elephant!");
+		yield return Dialogue.Create(kidBTomato, "Whoah, Mom is bigger than Jupiter!");
+		yield return Dialogue.Create(momTomato, "Children! Don't be rude.");
+
+		yield return momTomato.WaitTillShrunk();
+
+		yield return cucumber.WaitTillShrunk();
+
+		yield return Dialogue.Create(momTomato, "Thank you so much.");
+
+	}
+
+	IEnumerator PeachStrawberryScript()
+	{
+		yield return null;
+	}
+
+	IEnumerator BananaScript()
+	{
+		yield return null;
+	}
+
+	IEnumerator BroccoliScript()
+	{
+		yield return null;
+	}
+
+	IEnumerator PotatoScript()
+	{
+		yield return null;
+	}
+
+
 
 	Vegetable Spawn( Vegetable prefab, Transform spawnAt )
 	{
