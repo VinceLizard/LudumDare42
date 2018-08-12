@@ -11,6 +11,7 @@ public class UI : MonoBehaviour {
 	public Slider forceSlider;
 	public GameObject gameOverWindow;
 	public Button resetGame;
+    public Image sliderBackground;
 
 	void Awake () 
 	{

@@ -19,10 +19,12 @@ public class Launcher : MonoBehaviour
 	Slider forceSlider;
     Vector3 handPosition;
     float startCoolingTime;
+    Image sliderBackground;
 
     private void Start()
     {
 		forceSlider = UI.Singleton.forceSlider;
+        sliderBackground = UI.Singleton.sliderBackground;
         forceSlider.value = 0;
         forceMultiplier = FORCEMULTIPLIERSTARTVALUE;
     }
@@ -85,12 +87,13 @@ public class Launcher : MonoBehaviour
                 break;
 
             case State.Cooldown:
-                
+                    sliderBackground.color = Color.gray;
                     if (Time.time - startCoolingTime > cooldownDuration)
                     {
+                        sliderBackground.color = Color.white;
                         state = State.Inactive;
                     }
-
+                    
                 break;
         }
 
