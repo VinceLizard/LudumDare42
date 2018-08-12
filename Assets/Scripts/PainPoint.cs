@@ -34,6 +34,7 @@ public class PainPoint : MonoBehaviour
 			painModelPrefab = Resources.Load("PainPointModel") as GameObject;
 
 		painModel = GameObject.Instantiate(painModelPrefab, this.transform);
+		this.PainAmount = 0;
 	}
 
 	public void AddPain()

@@ -93,10 +93,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f150e745ebbf04b0da4559c3017e1583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayIntervalSecs: 0.1
+  displayIntervalSecs: 0.05
   charsPerDisplay: 1
   useWordBounds: 0
-  pauseDelaySecs: 0.5
+  pauseDelaySecs: 0.25
   label: {fileID: 114582235794011072}
   pauseCharacter: 126
 --- !u!114 &114195663194885564

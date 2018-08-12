@@ -10,9 +10,10 @@ public class Dialogue : MonoBehaviour
 	private Transform target;
 	private static Dialogue dialoguePrefab;
 
-	public static void Create(Vegetable target, string text, float duration)
+	public static IEnumerator Create(Vegetable target, string text, float duration)
 	{
 		Create(target.DialogueAnchor == null ? target.transform : target.DialogueAnchor, text, duration);
+		yield return new WaitForSeconds(duration);
 	}
 
 	public static void Create(Transform target, string text, float duration)
