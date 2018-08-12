@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//this script was used for testing the exploding behavior on the cucumber
 public class timedExplosion : MonoBehaviour {
 
     public GameObject explodingCucumber;

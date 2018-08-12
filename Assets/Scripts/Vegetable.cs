@@ -34,6 +34,7 @@ public class Vegetable : MonoBehaviour
 
 	[Header("Animation")]
     [SerializeField] Animator animator;
+    [SerializeField] GameObject explodingVeg;
 
 	private void Awake()
 	{
@@ -171,6 +172,7 @@ public class Vegetable : MonoBehaviour
 			}
 			else if( timePassed >= duration )
 			{
+                Explode();
 				Main.Singleton.GameOver();
 				break;
 			}
@@ -228,4 +230,9 @@ public class Vegetable : MonoBehaviour
 		}
 	}
 
+    void Explode()
+    {
+        Instantiate(explodingVeg);
+        gameObject.SetActive(false);
+    }
 }

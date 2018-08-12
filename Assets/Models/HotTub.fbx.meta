@@ -28,6 +28,10 @@ ModelImporter:
     100044: Gate.006
     100046: Gate.007
     100048: Gate.008
+    100050: Box
+    100052: Tank
+    100054: Gate.009
+    100056: GateDoor
     400000: Camera
     400002: Cylinder
     400004: //RootNode
@@ -53,6 +57,10 @@ ModelImporter:
     400044: Gate.006
     400046: Gate.007
     400048: Gate.008
+    400050: Box
+    400052: Tank
+    400054: Gate.009
+    400056: GateDoor
     2000000: Camera
     2100000: mat_hot_tub
     2100002: mat_building
@@ -84,6 +92,10 @@ ModelImporter:
     2300040: Gate.006
     2300042: Gate.007
     2300044: Gate.008
+    2300046: Box
+    2300048: Tank
+    2300050: Gate.009
+    2300052: GateDoor
     3300000: Cylinder
     3300002: //RootNode
     3300004: Building
@@ -107,6 +119,10 @@ ModelImporter:
     3300040: Gate.006
     3300042: Gate.007
     3300044: Gate.008
+    3300046: Box
+    3300048: Tank
+    3300050: Gate.009
+    3300052: GateDoor
     4300000: Cylinder
     4300002: Building
     4300004: Pool
@@ -128,6 +144,10 @@ ModelImporter:
     4300036: Gate.008
     4300038: Gate.007
     4300040: Gate.005
+    4300042: Box
+    4300044: Tank
+    4300046: GateDoor
+    4300048: Gate.009
     6400000: //RootNode
     6400002: Building
     6400004: Pool
@@ -150,8 +170,17 @@ ModelImporter:
     6400038: Gate.006
     6400040: Gate.007
     6400042: Gate.008
+    6400044: Box
+    6400046: Tank
+    6400048: Gate.009
+    6400050: GateDoor
     10800000: Lamp
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_box
+    second: {fileID: 2100000, guid: 1f13dbee6e3fc49ddae6d21f67bc5d5a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -217,6 +246,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: mat_stairs
     second: {fileID: 2100000, guid: ad9670c3ed61f48028d2b66ee3f16e79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_tank
+    second: {fileID: 2100000, guid: bec5b7ccc69d04e34a375c9770216c50, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
