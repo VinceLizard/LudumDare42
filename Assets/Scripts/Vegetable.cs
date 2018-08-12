@@ -15,8 +15,13 @@ public class Vegetable : MonoBehaviour
 	[SerializeField] Transform expandAnchor;
 	[SerializeField] float maxSize = 3f;
 
-	[Header("Dialogu Anchor")]
+	[Header("Dialog Anchor")]
 	[SerializeField] Transform dialogueAnchor;
+
+	[Header("Face")]
+	[SerializeField] Face facePrefab;
+	[SerializeField] Transform faceAnchor;
+	public Face Face { get; private set; }
 
 	public Transform DialogueAnchor 
 	{ 
@@ -29,6 +34,14 @@ public class Vegetable : MonoBehaviour
 
 	[Header("Animation")]
     [SerializeField] Animator animator;
+
+	private void Awake()
+	{
+		this.animator.SetBool("isJumping", false);
+		this.animator.SetFloat("Speed", 0f);
+
+		this.Face = GameObject.Instantiate( this.facePrefab,  this.faceAnchor, false );
+	}
 
 	public IEnumerator WalkTo(Transform dest, bool reverse = false)
 	{
@@ -44,10 +57,12 @@ public class Vegetable : MonoBehaviour
 			var currPos = this.transform.position;
 			if (Vector3.Distance(currPos, dest) < Mathf.Epsilon)
 			{
+				this.animator.SetFloat("Speed", 0f);
 				break;
 			}
 			else
 			{
+				this.animator.SetFloat("Speed", walkSpeed);
 				this.transform.position = Vector3.MoveTowards(currPos, dest, Time.deltaTime * walkSpeed);
 				this.transform.forward = Vector3.RotateTowards(this.transform.forward, (dest - currPos).normalized, Mathf.Deg2Rad * turnSpeed * Time.deltaTime, 100f);
 				yield return null;
@@ -191,6 +206,25 @@ public class Vegetable : MonoBehaviour
 			}
 
 			isExpanding = false;
+		}
+	}
+
+
+	bool isHurting = false;
+	IEnumerator TakeDamage()
+	{
+		isHurting = true;
+		this.Face.ToggleDamage(true);
+		yield return new WaitForSeconds(1f);
+		this.Face.ToggleDamage(false);
+		isHurting = false;
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		if(!isHurting)
+		{
+			StartCoroutine(TakeDamage());
 		}
 	}
 

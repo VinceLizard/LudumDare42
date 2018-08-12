@@ -43,11 +43,11 @@ public class Manager : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 
-		yield return Dialogue.Create(cucumber, "Hey there!", 2f);
+		yield return Dialogue.Create(cucumber, "Hey there!");
 
 		yield return new WaitForSeconds(1f);
 
-		yield return Dialogue.Create(cucumber, "How's the water?", 2f);
+		yield return Dialogue.Create(cucumber, "How's the water?");
 
 		yield return new WaitForSeconds(1f);
 
@@ -55,30 +55,29 @@ public class Manager : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 
-		yield return Dialogue.Create(cucumber, "I'm Paul. What's your name?", 3f);
+		yield return Dialogue.Create(cucumber, "I'm Paul. What's your name?");
 
 		yield return new WaitForSeconds(1f);
 
-		yield return Dialogue.Create(cucumber, "Stu, huh?", 2f);
+		yield return Dialogue.Create(cucumber, "Stu, huh?");
 
 		yield return new WaitForSeconds(1f);
 
-		yield return Dialogue.Create(cucumber, "Oh man Stu, I'm getting a little puffy in here.", 3f);
+		yield return Dialogue.Create(cucumber, "Oh man Stu, I'm getting a little puffy in here.");
 
 		StartCoroutine(cucumber.Expand(30f, new List<int>() { 0 }));
 
 		yield return new WaitForSeconds(1f);
 
-		StartCoroutine(Dialogue.Create(cucumber, "Toss me some saline solution will ya?", 3f));
+		StartCoroutine(Dialogue.Create(cucumber, "Toss me some saline solution will ya?"));
 
 		yield return new WaitForSeconds(1f);
 
 		Stu.Singleton.ToggleThrowing(true);
 
-
 		yield return cucumber.WaitTillShrunk();
 
-		yield return Dialogue.Create(cucumber, "Oh god, thanks. That felt great!", 3f);
+		yield return Dialogue.Create(cucumber, "Oh god, thanks. That felt great!");
 
 		yield return new WaitForSeconds(1f);
 
