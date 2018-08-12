@@ -372,17 +372,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cucumberPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
     type: 2}
-  tomatoPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+  tomatoPrefab: {fileID: 114901877538962642, guid: 3ad4b3b97759fd042b75d7c6fa919302,
     type: 2}
-  peachPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+  cherryTomatoPrefab: {fileID: 114169612248102232, guid: a0f3bb678ae53974d89da19b6b53a59f,
     type: 2}
-  pearPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+  peachPrefab: {fileID: 114746308856767580, guid: d2453367bb3061942a3a76025119d1f0,
     type: 2}
-  bananaPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+  pearPrefab: {fileID: 114553462044322992, guid: fb3d6b173e8a3754485be8b1c5598168,
     type: 2}
-  broccolliPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+  bananaPrefab: {fileID: 114260004463315938, guid: 99e9595798b04f34fa718da18c3102d7,
     type: 2}
-  potatoPrefab: {fileID: 114138725356434340, guid: 2b792b51769484396bd4ab67269e0066,
+  broccolliPrefab: {fileID: 114769179485675166, guid: 5f5fa86a32e01aa4298c568d4f5bf45a,
+    type: 2}
+  potatoPrefab: {fileID: 114524742832010036, guid: 351df578bb2d74740987861d6136f98f,
     type: 2}
   gateEntrace: {fileID: 4792418394000418}
   lobbyEntrace: {fileID: 4460585685488790}
