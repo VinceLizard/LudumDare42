@@ -7,7 +7,7 @@ public class CarlsTestScript : MonoBehaviour {
 	[SerializeField] Transform target;
 
 	void Start () {
-		Dialogue.Create(target, "Hello World!", 10000f);		
+		Dialogue.Create(null, "Hello World!", 10000f);		
 	}
 
 }

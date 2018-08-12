@@ -7,16 +7,15 @@ public class Dialogue : MonoBehaviour
 	[SerializeField] UITypewriterText typewriterText;
 	[SerializeField] Transform dialogueStub;
 	[SerializeField] float offsetDistance;
-	private Transform target;
+	private Vegetable target;
 	private static Dialogue dialoguePrefab;
 
-	public static IEnumerator Create(Vegetable target, string text, float duration)
+	private Transform GetTarget()
 	{
-		Create(target.DialogueAnchor == null ? target.transform : target.DialogueAnchor, text, duration);
-		yield return new WaitForSeconds(duration);
+		return target.DialogueAnchor == null ? target.transform : target.DialogueAnchor;
 	}
 
-	public static void Create(Transform target, string text, float duration)
+	public static IEnumerator Create(Vegetable target, string text, float pause = 2.5f)
 	{
 		if (dialoguePrefab == null)
 			dialoguePrefab = (Resources.Load("Dialogue") as GameObject).GetComponent<Dialogue>();
@@ -24,14 +23,31 @@ public class Dialogue : MonoBehaviour
 		var d = GameObject.Instantiate(dialoguePrefab);
 		d.typewriterText.StartTyping(text);
 		d.target = target;
-		GameObject.Destroy(d.gameObject, duration);
+
+
+		while (!d.typewriterText.IsComplete)
+			yield return null;
+		
+		yield return new WaitForSeconds(pause);
+
+		GameObject.Destroy(d.gameObject);
+	}
+
+	private IEnumerator Start()
+	{
+		target.Face.ToggleSpeaking(true);
+		while(this.typewriterText == null || !this.typewriterText.IsComplete)
+		{
+			yield return null;
+		}
+		target.Face.ToggleSpeaking(false);
 	}
 
 	private void LateUpdate()
 	{
 		if (this.target != null)
 		{
-			var currPos = target.position;
+			var currPos = GetTarget().position;
 			float extraPosition;
 			if ( Mathf.Abs(currPos.x) < 0.1f || currPos.x > 0)
 			{

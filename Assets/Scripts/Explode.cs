@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Explode : MonoBehaviour {
 
+    public Transform explosionPoint;
+
 	// Use this for initialization
 	void Start () {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.AddExplosionForce(5, transform.position, 5);
+        Vector3 explosionPos = explosionPoint.position;
+        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            rb.AddExplosionForce(300, explosionPos, 10, 1f);
+        }
 	}
 	
 	// Update is called once per frame
