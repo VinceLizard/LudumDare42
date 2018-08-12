@@ -462,7 +462,7 @@ MonoBehaviour:
   expandAnchor: {fileID: 4346553413673014}
   maxSize: 1.5
   dialogueAnchor: {fileID: 4987762483141872}
-  facePrefab: {fileID: 114383432041178404, guid: 1116e06cd2f674c6b80faa5212d12c59,
+  facePrefab: {fileID: 114304215185689354, guid: a658c817a72e87845966e516221e201e,
     type: 2}
   faceAnchor: {fileID: 4842436121707254}
   animator: {fileID: 95948103128358160}
