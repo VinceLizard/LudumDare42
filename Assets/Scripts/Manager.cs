@@ -40,10 +40,16 @@ public class Manager : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 
-		Dialogue.Create(cucumber, "Oh yea, it's tub time!", 5f);
+		yield return cucumber.WalkTo(leftPoolSeat);
+
+		Dialogue.Create(cucumber, "Oh yea, it's tub time!", 15f);
+
+		yield return new WaitForSeconds(3f);
+		yield return cucumber.WalkTo(rightPoolSeat);
 
 		StartCoroutine(cucumber.Expand(20f, new List<int>() { 0, 1 }));
 	    
+
 		yield return new WaitForSeconds(30f);
 
         yield return cucumber.JumpTo(middlePoolEntrance);
