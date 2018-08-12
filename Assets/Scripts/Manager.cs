@@ -43,7 +43,11 @@ public class Manager : MonoBehaviour
 		Dialogue.Create(cucumber, "Oh yea, it's tub time!", 5f);
 
 		StartCoroutine(cucumber.Expand(20f, new List<int>() { 0, 1 }));
-	}
+	    
+		yield return new WaitForSeconds(30f);
+
+        yield return cucumber.JumpTo(middlePoolEntrance);
+    }
 
 	Vegetable Spawn( Vegetable prefab, Transform spawnAt )
 	{

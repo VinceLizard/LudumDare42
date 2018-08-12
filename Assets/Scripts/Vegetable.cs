@@ -8,6 +8,7 @@ public class Vegetable : MonoBehaviour
 	[SerializeField] float walkSpeed = 6;
 	[SerializeField] float turnSpeed = 180f;
 	[SerializeField] float jumpTime = 1f;
+    [SerializeField] float jumpDelay = 0.25f;
 
 	[Header("Pain Points")]
 	[SerializeField] List<PainPoint> painPoints;
@@ -17,7 +18,17 @@ public class Vegetable : MonoBehaviour
 	[Header("Dialogu Anchor")]
 	[SerializeField] Transform dialogueAnchor;
 
-	public Transform DialogueAnchor { get { return this.dialogueAnchor; } }
+	public Transform DialogueAnchor 
+	{ 
+		get 
+		{
+			Util.CreateIfNull(ref this.dialogueAnchor, this.transform);
+			return this.dialogueAnchor; 
+		} 
+	}
+
+	[Header("Animation")]
+    [SerializeField] Animator animator;
 
 	public IEnumerator WalkTo(Transform dest)
 	{
@@ -64,8 +75,11 @@ public class Vegetable : MonoBehaviour
 
 	public IEnumerator JumpTo(Transform dest)
 	{
+        this.animator.SetBool("isJumping", true);
 		var startPos = this.transform.position;
 		var startRot = this.transform.rotation;
+
+        yield return new WaitForSeconds(jumpDelay);
 		float startTime = Time.time;
 
 		while (true)
@@ -85,7 +99,8 @@ public class Vegetable : MonoBehaviour
 				yield return null;
 			}
 		}
-	}
+    this.animator.SetBool("isJumping", false);
+    }
 
 	private bool isExpanding = false;
 	private float _expandAmount = 0;

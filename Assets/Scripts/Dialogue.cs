@@ -11,7 +11,7 @@ public class Dialogue : MonoBehaviour
 
 	public static void Create(Vegetable target, string text, float duration)
 	{
-		Create(target.DialogueAnchor, text, duration);
+		Create(target.DialogueAnchor == null ? target.transform : target.DialogueAnchor, text, duration);
 	}
 	public static void Create(Transform target, string text, float duration)
 	{
