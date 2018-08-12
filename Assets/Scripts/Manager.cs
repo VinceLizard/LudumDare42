@@ -32,12 +32,15 @@ public class Manager : MonoBehaviour
 		var cucumber = Spawn(cucumberPrefab, gateEntrace);
 
 
-
 		yield return cucumber.WalkTo(middlePoolEntrance);
 
 		yield return new WaitForSeconds(1f);
 
 		yield return cucumber.JumpTo(middlePoolSeat);
+
+		yield return new WaitForSeconds(1f);
+
+		Dialogue.Create(cucumber, "Oh yea, it's tub time!", 5f);
 
 		StartCoroutine(cucumber.Expand(20f, new List<int>() { 0, 1 }));
 	}

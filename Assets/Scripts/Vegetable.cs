@@ -14,6 +14,10 @@ public class Vegetable : MonoBehaviour
 	[SerializeField] Transform expandAnchor;
 	[SerializeField] float maxSize = 3f;
 
+	[Header("Dialogu Anchor")]
+	[SerializeField] Transform dialogueAnchor;
+
+	public Transform DialogueAnchor { get { return this.dialogueAnchor; } }
 
 	public IEnumerator WalkTo(Transform dest)
 	{
