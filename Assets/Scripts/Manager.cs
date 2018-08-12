@@ -65,6 +65,8 @@ public class Manager : MonoBehaviour
 
 		yield return cucumber.WalkTo(middlePoolEntrance);
 
+		cucumber.Face.LookAt(Stu.Singleton);
+
 		yield return new WaitForSeconds(1f);
 
 		yield return Dialogue.Create(cucumber, "Hey there!");
@@ -103,9 +105,15 @@ public class Manager : MonoBehaviour
 
 		yield return Dialogue.Create(cucumber, "Oh god, thanks. That felt great!");
 
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1f);
+
+		cucumber.Face.LookAt(gateEntrace);
+
+		yield return new WaitForSeconds(1f);
 
 		yield return Dialogue.Create(cucumber, "Looks like we've got company!", 3f);
+
+		cucumber.Face.StopLooking();
 
 		yield return cucumber.WalkTo(leftPoolSeat);
 	}
@@ -131,7 +139,11 @@ public class Manager : MonoBehaviour
 
 		yield return kidBTomato.WalkTo(rightPoolEntrance);
 
+		kidBTomato.Face.LookAt(cucumber);
+
 		yield return Dialogue.Create(kidBTomato, "You have to wait for mom!");
+
+		kidBTomato.Face.StopLooking();
 
 		if(momTomato == null)
 			momTomato = Spawn(cucumberPrefab, gateEntrace);

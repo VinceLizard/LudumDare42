@@ -15,19 +15,29 @@ public class Vegetable : MonoBehaviour
 	[SerializeField] Transform expandAnchor;
 	[SerializeField] float maxSize = 3f;
 
-	[Header("Dialog Anchor")]
+	[Header("Anchors")]
 	[SerializeField] Transform dialogueAnchor;
+	[SerializeField] Transform lookTargetAnchor;
 
 	[Header("Face")]
 	[SerializeField] Face facePrefab;
 	[SerializeField] Transform faceAnchor;
+
 	public Face Face { get; private set; }
+	public Transform LookTarget
+	{
+		get
+		{
+			Util.CreateIfNull(ref this.lookTargetAnchor, this.transform, new Vector3(0,2,0), Quaternion.identity);
+			return this.lookTargetAnchor;
+		}
+	}
 
 	public Transform DialogueAnchor 
 	{ 
 		get 
 		{
-			Util.CreateIfNull(ref this.dialogueAnchor, this.transform);
+			Util.CreateIfNull(ref this.dialogueAnchor, this.transform, new Vector3(0, 4, 0), Quaternion.identity);
 			return this.dialogueAnchor; 
 		} 
 	}
