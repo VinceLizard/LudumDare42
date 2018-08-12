@@ -15,7 +15,19 @@ public class Vegetable : MonoBehaviour
 	[SerializeField] Transform expandAnchor;
 	[SerializeField] float maxSize = 3f;
 
-    [Header("Animation")]
+	[Header("Dialogu Anchor")]
+	[SerializeField] Transform dialogueAnchor;
+
+	public Transform DialogueAnchor 
+	{ 
+		get 
+		{
+			Util.CreateIfNull(ref this.dialogueAnchor, this.transform);
+			return this.dialogueAnchor; 
+		} 
+	}
+
+	[Header("Animation")]
     [SerializeField] Animator animator;
 
 	public IEnumerator WalkTo(Transform dest)
