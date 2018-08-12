@@ -7,7 +7,8 @@ public class Manager : MonoBehaviour
 	[Header("Vegetables")]
 	[SerializeField] Vegetable cucumberPrefab;
 	[SerializeField] Vegetable tomatoPrefab;
-	[SerializeField] Vegetable peachPrefab;
+    [SerializeField] Vegetable cherryTomatoPrefab;
+    [SerializeField] Vegetable peachPrefab;
 	[SerializeField] Vegetable pearPrefab;
 	[SerializeField] Vegetable bananaPrefab;
 	[SerializeField] Vegetable broccolliPrefab;
@@ -44,12 +45,13 @@ public class Manager : MonoBehaviour
 	IEnumerator Start()
 	{
 		//Time.timeScale = 3f;
-
+        /*
 		yield return CucumberScript();
 		yield return TomatoScript();
 		yield return PeachStrawberryScript();
 		yield return BananaScript();
 		yield return BroccoliScript();
+        */
 		yield return PotatoScript();
     }
 
@@ -118,7 +120,7 @@ public class Manager : MonoBehaviour
 			cucumber = Spawn(cucumberPrefab, leftPoolSeat);
 
 		if(kidATomato == null)
-			kidATomato = Spawn(cucumberPrefab, gateEntrace);
+			kidATomato = Spawn(cherryTomatoPrefab, gateEntrace);
 
 		yield return kidATomato.WalkTo(rightPoolEntrance);
 
@@ -127,14 +129,14 @@ public class Manager : MonoBehaviour
 		yield return kidATomato.JumpTo(rightPoolSeat);
 
 		if(kidBTomato == null)
-			kidBTomato = Spawn(cucumberPrefab, gateEntrace);
+			kidBTomato = Spawn(cherryTomatoPrefab, gateEntrace);
 
 		yield return kidBTomato.WalkTo(rightPoolEntrance);
 
 		yield return Dialogue.Create(kidBTomato, "You have to wait for mom!");
 
 		if(momTomato == null)
-			momTomato = Spawn(cucumberPrefab, gateEntrace);
+			momTomato = Spawn(tomatoPrefab, gateEntrace);
 
 		yield return momTomato.WalkTo(middlePoolEntrance);
 
@@ -166,7 +168,7 @@ public class Manager : MonoBehaviour
 
 		yield return Dialogue.Create(kidATomato, "Mom looks like an elephant!");
 		yield return Dialogue.Create(kidBTomato, "Whoah, Mom is bigger than Jupiter!");
-		yield return Dialogue.Create(momTomato, "Children! Don't be rude.");
+		yield return Dialogue.Create(momTomato, "Children! Don't be rude. That Potato is setting a bad example...");
 
 		yield return momTomato.WaitTillShrunk();
 
@@ -193,8 +195,63 @@ public class Manager : MonoBehaviour
 
 	IEnumerator PotatoScript()
 	{
-		yield return null;
-	}
+        Stu.Singleton.ToggleThrowing(false);
+
+        if (potato == null)
+			    potato = Spawn(potatoPrefab, gateEntrace);
+
+        yield return potato.WalkTo(middlePoolEntrance);
+
+        yield return Dialogue.Create(potato, "Hot potato comin' through!");
+
+        yield return potato.JumpTo(middlePoolSeat);
+
+        yield return Dialogue.Create(potato, "I'm not too much for you huh?");
+
+        yield return new WaitForSeconds(1f);
+
+        yield return Dialogue.Create(potato, "All these other fruits and veggies can't handle a straight shooter like me");
+
+        yield return new WaitForSeconds(1f);
+
+        yield return Dialogue.Create(potato, "I just tell it like it is, you know?");
+
+        yield return new WaitForSeconds(1f);
+
+        yield return Dialogue.Create(potato, "Like what's with that silly hand of yours? I bet you couldn't throw a syringe 3 feet..");
+
+        Stu.Singleton.ToggleThrowing(true);
+
+        StartCoroutine(potato.Expand(60f, new List<int>() { 0, 1, 2}));
+
+        yield return Dialogue.Create(potato, "Uh oh... Dagnabbit! I forgot about this part!");
+
+        yield return potato.WaitTillShrunk();
+
+        yield return Dialogue.Create(potato, "*cough* *cough* Well... anybody could throw a syringe like that ---");
+
+        StartCoroutine(potato.Expand(60f, new List<int>() { 0, 1, 2 })); //will make bigger
+
+        yield return Dialogue.Create(potato, "Oh no, here comes a big one!!!");
+
+        yield return potato.WaitTillShrunk();
+
+        yield return Dialogue.Create(potato, "Wow, you've really got a knack for that. Thanks for saving me.");
+
+        yield return new WaitForSeconds(1f);
+
+        yield return Dialogue.Create(potato, "I really need to apologize for my behavior.");
+
+        yield return Dialogue.Create(potato, "Ever since my wife left I've been in a downward spiral...");
+
+        yield return Dialogue.Create(potato, "Well I'm lucky I met you. I'll let you finally relax. Have a good night!");
+
+        yield return potato.JumpTo(middlePoolEntrance);
+
+        yield return potato.WalkTo(gateEntrace);
+
+    //destroy potato
+    }
 
 
 
