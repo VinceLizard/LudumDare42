@@ -46,15 +46,14 @@ public class Manager : MonoBehaviour
 	{
 		//Time.timeScale = 3f;
         
-		yield return CucumberScript();
-		yield return TomatoScript();
+		//yield return CucumberScript(); 
+		//yield return TomatoScript(); 
 		yield return PeachStrawberryScript();
 		yield return BananaScript();
 		yield return BroccoliScript();
         yield return PotatoScript();
 
     }
-
 
 	IEnumerator CucumberScript()
 	{
@@ -73,8 +72,6 @@ public class Manager : MonoBehaviour
 
 		yield return Dialogue.Create(cucumber, "Hey there!");
 
-		yield return new WaitForSeconds(1f);
-
 		yield return Dialogue.Create(cucumber, "How's the water?");
 
 		yield return new WaitForSeconds(1f);
@@ -91,7 +88,7 @@ public class Manager : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 
-		yield return Dialogue.Create(cucumber, "Oh man Stu, I'm getting a little puffy in here.");
+		yield return Dialogue.Create(cucumber, "Oh man Stu... This is embarrassing, but I'm swelling up");
 
 		StartCoroutine(cucumber.Expand(30f, new List<int>() { 0 }));
 
@@ -113,11 +110,11 @@ public class Manager : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 
-		yield return Dialogue.Create(cucumber, "Looks like we've got company!", 3f);
+		yield return Dialogue.Create(cucumber, "Looks like we've got company", 3f);
 
 		cucumber.Face.StopLooking();
 
-		yield return cucumber.WalkTo(farLeftPoolSeat);
+		yield return cucumber.WalkTo(leftPoolSeat);
 	}
 
 	IEnumerator TomatoScript()
@@ -127,37 +124,41 @@ public class Manager : MonoBehaviour
 		if(kidATomato == null)
 			kidATomato = Spawn(cherryTomatoPrefab, gateEntrace);
 
-		yield return kidATomato.WalkTo(rightPoolEntrance);
+        StartCoroutine(kidATomato.WalkTo(rightPoolEntrance));
 
-		yield return Dialogue.Create(kidATomato, "Cannonball!");
+        if (kidBTomato == null)
+            kidBTomato = Spawn(cherryTomatoPrefab, gateEntrace);
 
-		yield return kidATomato.JumpTo(rightPoolSeat);
+        yield return Dialogue.Create(kidATomato, "CANNONBALL!");
 
-		if(kidBTomato == null)
-			kidBTomato = Spawn(cherryTomatoPrefab, gateEntrace);
+        StartCoroutine(kidATomato.JumpTo(rightPoolSeat));
 
-		yield return kidBTomato.WalkTo(rightPoolEntrance);
+        StartCoroutine(kidBTomato.WalkTo(rightPoolEntrance));
 
 		kidBTomato.Face.LookAt(kidATomato);
 
-		yield return Dialogue.Create(kidBTomato, "You have to wait for mom!");
-
-		kidBTomato.Face.StopLooking();
+		yield return Dialogue.Create(kidBTomato, "YOU HAVE TO WAIT FOR MOM!");
 
 		if(momTomato == null)
 			momTomato = Spawn(tomatoPrefab, gateEntrace);
 
-		yield return momTomato.WalkTo(middlePoolEntrance);
+        kidBTomato.Face.LookAt(momTomato);
 
-		yield return Dialogue.Create(momTomato, "Bobby, there are other people in the hottub.");
+        StartCoroutine(momTomato.WalkTo(middlePoolEntrance));
 
-		yield return Dialogue.Create(cucumber, "It's fine. Hop on in.");
+		yield return Dialogue.Create(momTomato, "Bobby, there are other people in the hottub");
 
-		yield return momTomato.JumpTo(middlePoolSeat);
+		yield return Dialogue.Create(cucumber, "It's fine. Hop on in");
 
-		yield return kidBTomato.JumpTo(farRightPoolSeat);
+        StartCoroutine(momTomato.JumpTo(middlePoolSeat));
 
-		yield return Dialogue.Create(kidBTomato, "It's too hot!");
+        kidBTomato.Face.StopLooking();
+
+        yield return kidBTomato.JumpTo(farRightPoolSeat);
+
+		yield return Dialogue.Create(kidBTomato, "Ahhh HOT!");
+
+        StartCoroutine(Dialogue.Create(kidATomato, "It's a hot tub dummy!"));
 
 		yield return kidBTomato.TurnTo(farRightPoolSeat.rotation, true);
 
@@ -169,54 +170,148 @@ public class Manager : MonoBehaviour
 
 		StartCoroutine(momTomato.Expand(60f, new List<int>() { 0, 1 }));
 
-		yield return Dialogue.Create(cucumber, "Here we go. Stu, can you help?");
+		yield return Dialogue.Create(cucumber, "We're swelling again. Stu, can you help?");
 
 		Stu.Singleton.ToggleThrowing(true);
 
 		StartCoroutine(cucumber.Expand(60f, new List<int>() { 0, 1 }));
 
 		yield return Dialogue.Create(kidATomato, "Mom looks like an elephant!");
+
 		yield return Dialogue.Create(kidBTomato, "Whoah, Mom is bigger than Jupiter!");
-		yield return Dialogue.Create(momTomato, "Children! Don't be rude. That Potato is setting a bad example...");
+
+        yield return new WaitForSeconds(1f);
+
+		yield return Dialogue.Create(momTomato, "Children! Don't be rude");
 
 		yield return momTomato.WaitTillShrunk();
 
 		yield return cucumber.WaitTillShrunk();
 
-		yield return Dialogue.Create(momTomato, "Thank you so much.");
+		yield return Dialogue.Create(momTomato, "Thank you so much");
 
-	}
+        yield return Dialogue.Create(momTomato, "I think that's enough for us");
+
+        StartCoroutine(kidBTomato.WalkTo(gateEntrace));    
+
+        momTomato.Face.LookAt(kidATomato);
+
+        yield return Dialogue.Create(momTomato, "You two need to stop acting like that potato");
+
+    //despawn kidB
+
+        momTomato.Face.StopLooking();
+
+        StartCoroutine(kidATomato.JumpTo(rightPoolEntrance));
+
+        yield return momTomato.JumpTo(middlePoolEntrance);
+
+        StartCoroutine(kidATomato.WalkTo(gateEntrace));
+
+        yield return momTomato.JumpTo(middlePoolEntrance);
+
+        yield return momTomato.WalkTo(gateEntrace);
+
+    //despawn momtomato
+    //despawn kidA
+
+    }
 
 	IEnumerator PeachStrawberryScript()
 	{
-        //temporary positioning
-        yield return kidBTomato.JumpTo(gateEntrace, true);
-        yield return kidATomato.JumpTo(gateEntrace, true);
-        yield return momTomato.JumpTo(gateEntrace, true);
+        if (cucumber == null)
+            cucumber = Spawn(cucumberPrefab, leftPoolSeat);
+        //temp cuc
 
         if (peach == null)
-            peach = Spawn(peachPrefab, lobbyEntrace);
+                peach = Spawn(peachPrefab, lobbyEntrace);
+        StartCoroutine(peach.WalkTo(rightPoolEntrance));
+        yield return new WaitForSeconds(.5f);
 
+        StartCoroutine(Dialogue.Create(peach, "This guy Carl wanted to write my dialogue, but he was totally like $@#% that !%!@!"));
+   
+        yield return new WaitForSeconds(.5f);
+
+        cucumber.Face.LookAt(peach);
+    
         if (pear == null)
             pear = Spawn(pearPrefab, lobbyEntrace);
+
+        pear.Face.LookAt(peach);
+
+        StartCoroutine(pear.WalkTo(middlePoolEntrance));
+
+        yield return new WaitForSeconds(4f);
+
+        StartCoroutine(Dialogue.Create(pear, "OMG seriously?"));
+
+        yield return new WaitForSeconds(3f);
 
         yield return peach.JumpTo(rightPoolSeat);
 
         yield return pear.JumpTo(middlePoolSeat);
+
+        StartCoroutine(Dialogue.Create(cucumber, "hi"));
+
+        yield return new WaitForSeconds(.5f);
+
+        peach.Face.LookAt(cucumber);
+
+        pear.Face.LookAt(cucumber);
+
+        yield return new WaitForSeconds(6f);
+    
     }
 
 	IEnumerator BananaScript()
 	{
         if (banana == null)
-            banana = Spawn(bananaPrefab, lobbyEntrace);
+            banana = Spawn(bananaPrefab, sideDoorEntrace);
+
+        StartCoroutine(Dialogue.Create(banana, "I don't think you guys are ready for this!"));
+
+        yield return banana.WalkTo(leftPoolEntrance);
+
+        peach.Face.StopLooking();
+
+        pear.Face.StopLooking();
+
+        StartCoroutine(Dialogue.Create(cucumber, "I'm not"));
+
+        yield return cucumber.WalkTo(farLeftPoolSeat);
+
+        yield return new WaitForSeconds(2f);
+
+        yield return Dialogue.Create(banana, "I'm gonna send it!");
 
         yield return banana.JumpTo(leftPoolSeat);
+
+        yield return new WaitForSeconds(.5f);
+
+        StartCoroutine(Dialogue.Create(banana, "WOO! THAT'S HOT"));
+
+        yield return new WaitForSeconds(3f);
+
+        pear.Face.LookAt(peach);
+
+        peach.Face.LookAt(pear);
+
     }
 
 	IEnumerator BroccoliScript()
 	{
+        yield return new WaitForSeconds(2f);
+
+        peach.Face.LookAt(pear);
+
+        yield return new WaitForSeconds(1f);
+
+        peach.Face.StopLooking();
+
+        pear.Face.StopLooking();
+
         if (broccolli == null)
-            broccolli = Spawn(broccolliPrefab, rightPoolEntrance);
+                broccolli = Spawn(broccolliPrefab, gateEntrace);
 
         yield return broccolli.WalkTo(rightPoolEntrance);
 
@@ -224,7 +319,7 @@ public class Manager : MonoBehaviour
 
         yield return broccolli.JumpTo(farRightPoolSeat);
 
-        yield return Dialogue.Create(banana, "WOOOO we love to party!!! right ladies??");
+        yield return Dialogue.Create(banana, "WOOOO! we love to party!!! right ladies??");
 
         yield return new WaitForSeconds(2f);
 
