@@ -22,8 +22,10 @@ public class Vegetable : MonoBehaviour
 	[Header("Face")]
 	[SerializeField] Face facePrefab;
 	[SerializeField] Transform faceAnchor;
+    [SerializeField] Material lidColorMat;
+    [SerializeField] LidColor lidColorScript;
 
-	public Face Face { get; private set; }
+    public Face Face { get; private set; }
 	public Transform LookTarget
 	{
 		get
@@ -46,12 +48,16 @@ public class Vegetable : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject explodingVeg;
 
+
+
 	private void Awake()
 	{
 		this.animator.SetBool("isJumping", false);
 		this.animator.SetFloat("Speed", 0f);
 
 		this.Face = GameObject.Instantiate( this.facePrefab,  this.faceAnchor, false );
+        lidColorScript = this.Face.GetComponent<LidColor>();
+        lidColorScript.lidColor = lidColorMat;
 	}
 
 	public IEnumerator WalkTo(Transform dest, bool reverse = false)

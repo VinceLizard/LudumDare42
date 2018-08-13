@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour 
 {
+    static int currentScene = 2;
+
 	[Header("Vegetables")]
 	[SerializeField] Vegetable cucumberPrefab;
 	[SerializeField] Vegetable tomatoPrefab;
@@ -46,18 +48,47 @@ public class Manager : MonoBehaviour
 		//Time.timeScale = 3f;
 		AudioManager.Singleton.PlayNormalMusic();
 
-		yield return CucumberScript();
-		yield return TomatoScript(); 
-		yield return PeachStrawberryScript();
-		yield return BananaScript();
-		yield return BroccoliScript();
-		yield return PotatoScript();
+        if(currentScene == 0)
+		{
+			yield return CucumberScript();
+			currentScene++;
+		}
 
+		if (currentScene == 1)
+		{
+			yield return TomatoScript(); 
+			currentScene++;
+		}
+
+		if (currentScene == 2)
+		{
+			yield return PeachStrawberryScript();
+			currentScene++;
+		}
+
+		if (currentScene == 3)
+		{
+			yield return BananaScript();
+			currentScene++;
+		}
+
+		if (currentScene == 4)
+		{
+			yield return BroccoliScript();
+			currentScene++;
+		}
+
+		if (currentScene == 5)
+		{
+			yield return PotatoScript();
+			currentScene++;
+		}
     }
 
 	IEnumerator CucumberScript()
 	{
-		Stu.Singleton.ToggleThrowing(false);
+
+        Stu.Singleton.ToggleThrowing(false);
 
 		yield return new WaitForSeconds(1f);
 
@@ -119,6 +150,7 @@ public class Manager : MonoBehaviour
 
 	IEnumerator TomatoScript()
 	{
+
         Stu.Singleton.ToggleThrowing(false);
 
         if (cucumber == null)
@@ -245,8 +277,6 @@ public class Manager : MonoBehaviour
         if (pear == null)
             pear = Spawn(pearPrefab, lobbyEntrace);
 
-        pear.Face.LookAt(peach);
-
 		StartCoroutinePending(pear.WalkTo(middlePoolEntrance));
 
         yield return new WaitForSeconds(4f);
@@ -276,7 +306,7 @@ public class Manager : MonoBehaviour
 
 		cucumber.Face.LookAt(pear);
 
-		yield return Dialogue.Create(cucumber, "Enjoying all the bubbles!");
+		yield return Dialogue.Create(cucumber, "Great, I'm enjoying all these bubbles!");
 
 		yield return Dialogue.Create(pear, "Oh, I bet you are!");
 
@@ -323,7 +353,7 @@ public class Manager : MonoBehaviour
 
 		cucumber.Face.LookAt(peach);
 
-		yield return Dialogue.Create(cucumber, "Ok ...~~ that's cool.");
+		yield return Dialogue.Create(cucumber, "Ok ...~~ that's cool I guess.");
 
 		cucumber.Face.StopLooking();
 		peach.Face.StopLooking();
@@ -386,6 +416,7 @@ public class Manager : MonoBehaviour
 
 	IEnumerator BroccoliScript()
 	{
+
         Stu.Singleton.ToggleThrowing(false);
 
         if (cucumber == null)
@@ -474,10 +505,13 @@ public class Manager : MonoBehaviour
 
         yield return Dialogue.Create(broccolli, "Impressive!");
 
+        AudioManager.Singleton.PlayNormalMusic();
+
     }
 
 	IEnumerator PotatoScript()
 	{
+
         Stu.Singleton.ToggleThrowing(false);
 
         if (cucumber == null)
@@ -559,6 +593,8 @@ public class Manager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         StartCoroutine(potato.Expand(10f, new List<int>() { 0, 1}));
+
+        AudioManager.Singleton.PlayExcitingMusic();
 
         yield return Dialogue.Create(potato, "Uh oh... Dagnabbit! I forgot about this part!");
 

@@ -44,14 +44,9 @@ public class LookAtThis : MonoBehaviour {
 			return root.forward;
 		
 		var pos = root.InverseTransformPoint(this.lookTarget.position);
-		var xzPos = new Vector3(pos.x, 0, pos.z);
-		var yzPos = new Vector3(0, pos.y, pos.z);
 
 		float yRotation = ConstrainAngle(Mathf.Rad2Deg * Mathf.Atan2(pos.x, pos.z), yRotMaxDegrees);
 		float xRotation = ConstrainAngle(Mathf.Rad2Deg * Mathf.Atan2(-1 * pos.y, pos.z), xRotMaxDegrees);
-
-		var yLookAt = Quaternion.Euler(0, yRotation, 0) * Vector3.forward;
-		var xLookAt = Quaternion.Euler(xRotation, 0, 0) * Vector3.forward;
 
 		var finalLookAt = (Quaternion.Euler(xRotation, 0, 0) * Quaternion.Euler(0, yRotation, 0)) * Vector3.forward;
 		finalLookAt.Normalize();
