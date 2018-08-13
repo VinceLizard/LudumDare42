@@ -146,9 +146,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4452157053245786}
   - component: {fileID: 114746308856767580}
-  - component: {fileID: 114847685908168258}
-  - component: {fileID: 54658662768154384}
-  - component: {fileID: 135445138865378760}
   m_Layer: 0
   m_Name: Peach
   m_TagString: Untagged
@@ -164,6 +161,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4384098771619682}
+  - component: {fileID: 135565167613677742}
+  - component: {fileID: 54630535806142316}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -428,12 +427,12 @@ Transform:
   m_Father: {fileID: 4884934881491808}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54658662768154384
+--- !u!54 &54630535806142316
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631352367900690}
+  m_GameObject: {fileID: 1669390131901550}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -527,25 +526,6 @@ MonoBehaviour:
   animator: {fileID: 95256389874625178}
   explodingVeg: {fileID: 1660314225398190, guid: 13505f1c72a3a7340abce61884ad2c53,
     type: 2}
---- !u!114 &114847685908168258
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631352367900690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90ad05d0e50a0854cb1b1d12765d0feb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookTarget: {fileID: 0}
-  eyesAndLids:
-  - {fileID: 0}
-  - {fileID: 0}
-  root: {fileID: 0}
-  degreesPerSecond: 240
-  yRotMaxDegrees: 60
-  xRotMaxDegrees: 30
 --- !u!135 &135331432858478482
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -558,12 +538,12 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135445138865378760
+--- !u!135 &135565167613677742
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631352367900690}
+  m_GameObject: {fileID: 1669390131901550}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
