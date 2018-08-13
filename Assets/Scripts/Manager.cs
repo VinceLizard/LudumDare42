@@ -31,7 +31,6 @@ public class Manager : MonoBehaviour
 	[SerializeField] Transform rightPoolSeat;
 	[SerializeField] Transform farRightPoolSeat;
 
-
 	Vegetable cucumber;
 	Vegetable kidATomato;
 	Vegetable kidBTomato;
@@ -45,12 +44,13 @@ public class Manager : MonoBehaviour
 	IEnumerator Start()
 	{
 		//Time.timeScale = 3f;
-        
+		AudioManager.Singleton.PlayNormalMusic();
     
 		yield return CucumberScript(); 
 		yield return TomatoScript(); 
 		yield return PeachStrawberryScript();
 		yield return BananaScript();
+		yield return BroccoliScript();
 		yield return BroccoliScript();
         yield return PotatoScript();
 
@@ -383,6 +383,7 @@ public class Manager : MonoBehaviour
 
         yield return Dialogue.Create(broccolli, "woop, spoke too soon");
 
+		AudioManager.Singleton.PlayExcitingMusic();
         Stu.Singleton.ToggleThrowing(true);
 
         StartCoroutine(cucumber.Expand(30f, new List<int>() { 0 }));
