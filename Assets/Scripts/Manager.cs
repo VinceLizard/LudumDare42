@@ -45,7 +45,7 @@ public class Manager : MonoBehaviour
 
 	IEnumerator Start()
 	{
-		Time.timeScale = 3f;
+		//Time.timeScale = 3f;
 		AudioManager.Singleton.PlayNormalMusic();
 
         if(currentScene == 0)

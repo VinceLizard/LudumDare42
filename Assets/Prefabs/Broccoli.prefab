@@ -601,6 +601,8 @@ MonoBehaviour:
   facePrefab: {fileID: 114383432041178404, guid: 1116e06cd2f674c6b80faa5212d12c59,
     type: 2}
   faceAnchor: {fileID: 4669722252917380}
+  lidColorMat: {fileID: 2100000, guid: 1b5993c591726dc43abb0f25d8637b7d, type: 2}
+  lidColorScript: {fileID: 0}
   animator: {fileID: 95112827275737178}
   explodingVeg: {fileID: 1579388778669542, guid: 6849baae4810ade44a0df50f9a1c1e07,
     type: 2}

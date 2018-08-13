@@ -515,7 +515,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1816707646524402}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: -0.029, z: -0}
+  m_LocalPosition: {x: -0.035, y: -0.056, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4006938899363258}
@@ -615,6 +615,8 @@ MonoBehaviour:
   facePrefab: {fileID: 114383432041178404, guid: 1116e06cd2f674c6b80faa5212d12c59,
     type: 2}
   faceAnchor: {fileID: 4985655046278434}
+  lidColorMat: {fileID: 2100000, guid: 7259615dafb590c4bbc498014ed74e8a, type: 2}
+  lidColorScript: {fileID: 0}
   animator: {fileID: 95701599582746310}
   explodingVeg: {fileID: 1537114278406968, guid: 798522238214757458b9c33a7ba8d627,
     type: 2}

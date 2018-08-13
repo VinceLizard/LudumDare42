@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 114304215185689354}
   - component: {fileID: 114865784078500928}
   - component: {fileID: 114693947054766558}
+  - component: {fileID: 114471491333224464}
   m_Layer: 0
   m_Name: FemaleFace
   m_TagString: Untagged
@@ -2640,6 +2641,21 @@ MonoBehaviour:
   hurtFace: {fileID: 1700054585308792}
   normalFace: {fileID: 1167388256167910}
   lookAtThis: {fileID: 114693947054766558}
+--- !u!114 &114471491333224464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1148015174811576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89387168b7efff442b746244a816546a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lids:
+  - {fileID: 1171808019547258}
+  - {fileID: 1149272849402894}
+  lidColor: {fileID: 0}
 --- !u!114 &114693947054766558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2670,7 +2686,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd20b7802c4c394ca7ab10163b63c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 1
   lids:
   - {fileID: 1171808019547258}
   - {fileID: 1149272849402894}
