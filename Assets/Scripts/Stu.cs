@@ -8,6 +8,9 @@ public class Stu : MonoBehaviour
 
 	[SerializeField] Transform cameraAnchor;
 	[SerializeField] Transform launcherAnchor;
+
+	public Transform LookTarget { get; private set; }
+
 	private void Awake()
 	{
 		Singleton = this;
@@ -17,6 +20,9 @@ public class Stu : MonoBehaviour
 		t.localPosition = Vector3.zero;
 
 		launcherAnchor.SetParent(t, false);
+
+		LookTarget = t;
+
 	}
 
 	void OnDestroy()

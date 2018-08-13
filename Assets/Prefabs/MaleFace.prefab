@@ -486,6 +486,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1425406795764684
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4290808598333458}
+  m_Layer: 0
+  m_Name: EyeCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1427305880860452
 GameObject:
   m_ObjectHideFlags: 1
@@ -543,6 +558,7 @@ GameObject:
   - component: {fileID: 4101331875881372}
   - component: {fileID: 114383432041178404}
   - component: {fileID: 114321622035498138}
+  - component: {fileID: 114950284196152828}
   m_Layer: 0
   m_Name: MaleFace
   m_TagString: Untagged
@@ -1264,6 +1280,19 @@ Transform:
   m_Father: {fileID: 4997194472110766}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4290808598333458
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1425406795764684}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.1335, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4952991809136302}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4308150277425022
 Transform:
   m_ObjectHideFlags: 1
@@ -1805,6 +1834,7 @@ Transform:
   m_Children:
   - {fileID: 4015197513834574}
   - {fileID: 4147825144735870}
+  - {fileID: 4290808598333458}
   m_Father: {fileID: 4186710469801324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2217,6 +2247,26 @@ MonoBehaviour:
   mouthAnimator: {fileID: 95175737922393730}
   hurtFace: {fileID: 1219890908191402}
   normalFace: {fileID: 1436056146960960}
+  lookAtThis: {fileID: 114950284196152828}
+--- !u!114 &114950284196152828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1463774316096922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ad05d0e50a0854cb1b1d12765d0feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookTarget: {fileID: 0}
+  eyesAndLids:
+  - {fileID: 4015197513834574}
+  - {fileID: 4147825144735870}
+  root: {fileID: 4290808598333458}
+  degreesPerSecond: 240
+  yRotMaxDegrees: 60
+  xRotMaxDegrees: 30
 --- !u!137 &137355316826420214
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
