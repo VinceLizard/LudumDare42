@@ -608,6 +608,10 @@ MonoBehaviour:
   painPoints:
   - {fileID: 114675924058348912}
   - {fileID: 114141294532773870}
+  - {fileID: 114800527772614074}
+  - {fileID: 114419822355860740}
+  - {fileID: 114085454378075046}
+  - {fileID: 114669113750524046}
   expandAnchor: {fileID: 4782634524707332}
   maxSize: 1.5
   dialogueAnchor: {fileID: 4329087271929868}
