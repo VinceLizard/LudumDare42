@@ -46,12 +46,12 @@ public class Manager : MonoBehaviour
 		//Time.timeScale = 3f;
 		AudioManager.Singleton.PlayNormalMusic();
 
-		yield return CucumberScript(); 
+		yield return CucumberScript();
 		yield return TomatoScript(); 
 		yield return PeachStrawberryScript();
 		yield return BananaScript();
-		yield return BroccoliScript(); 
-        yield return PotatoScript();
+		yield return BroccoliScript();
+		yield return PotatoScript();
 
     }
 
@@ -232,11 +232,11 @@ public class Manager : MonoBehaviour
         if (peach == null)
                 peach = Spawn(peachPrefab, lobbyEntrace);
 
-        StartCoroutine(peach.WalkTo(rightPoolEntrance));
+		StartCoroutinePending(peach.WalkTo(rightPoolEntrance));
 
         yield return new WaitForSeconds(.5f);
 
-        StartCoroutine(Dialogue.Create(peach, "This guy Carl wanted to write my dialogue, but he was totally like $@#% that !%!@!"));
+        StartCoroutine(Dialogue.Create(peach, "Can you believe the nerve of that guy?"));
    
         yield return new WaitForSeconds(.5f);
 
@@ -247,28 +247,95 @@ public class Manager : MonoBehaviour
 
         pear.Face.LookAt(peach);
 
-        StartCoroutine(pear.WalkTo(middlePoolEntrance));
+		StartCoroutinePending(pear.WalkTo(middlePoolEntrance));
 
         yield return new WaitForSeconds(4f);
 
-        StartCoroutine(Dialogue.Create(pear, "OMG seriously?"));
+		StartCoroutinePending(Dialogue.Create(pear, "Seriously, he's just a spin instructor."));
 
-        yield return new WaitForSeconds(3f);
+		yield return WaitForPending();
+
+		yield return new WaitForSeconds(1f);
 
         yield return peach.JumpTo(rightPoolSeat);
 
         yield return pear.JumpTo(middlePoolSeat);
 
-        StartCoroutine(Dialogue.Create(cucumber, "hi"));
+		yield return new WaitForSeconds(2f);
 
-        yield return new WaitForSeconds(.5f);
+        yield return Dialogue.Create(cucumber, "Hey, how you ladies doing today?");
 
-        peach.Face.LookAt(cucumber);
+		yield return new WaitForSeconds(0.5f);
+
+		peach.Face.LookAt(farRightPoolSeat);
+		yield return Dialogue.Create(peach, "Ugh ...");
 
         pear.Face.LookAt(cucumber);
 
-        yield return new WaitForSeconds(6f);
-    
+		yield return Dialogue.Create(pear, "Pretty good, what about you?");
+
+		cucumber.Face.LookAt(pear);
+
+		yield return Dialogue.Create(cucumber, "Enjoying all the bubbles!");
+
+		yield return Dialogue.Create(pear, "Oh, I bet you are!");
+
+		peach.Face.LookAt(pear);
+
+		pear.Face.LookAt(peach);
+		yield return Dialogue.Create(peach, "Linda, don't encourage him.");
+
+		yield return new WaitForSeconds(0.5f);
+		pear.Face.LookAt(peach);
+		yield return Dialogue.Create(pear, "What, he's kinda cute.");
+
+		peach.Face.StopLooking();
+		yield return Dialogue.Create(peach, "Whatever.");
+
+		// expansion begins
+		StartCoroutine(cucumber.Expand(60f, new List<int>() { 0 }));
+
+		StartCoroutine(peach.Expand(60f, new List<int>() { 0 }));
+
+		StartCoroutine(pear.Expand(60f, new List<int>() { 0 }));
+
+		Stu.Singleton.ToggleThrowing(true);
+
+		peach.Face.StopLooking();
+		pear.Face.StopLooking();
+		cucumber.Face.StopLooking();
+
+		yield return new WaitForSeconds(3f);
+
+		cucumber.Face.LookAt(pear);
+
+		yield return Dialogue.Create(cucumber, "You guys on business or vacation?");
+
+		pear.Face.LookAt(cucumber);
+
+		yield return Dialogue.Create(pear, "We're here for a wedding.");
+
+		yield return Dialogue.Create(cucumber, "Nice, I love weddings, they're so much fun.");
+
+		peach.Face.LookAt(cucumber);
+
+		yield return Dialogue.Create(peach, "I'm the maid of honor.");
+
+		cucumber.Face.LookAt(peach);
+
+		yield return Dialogue.Create(cucumber, "Ok ...~~ that's cool.");
+
+		cucumber.Face.StopLooking();
+		peach.Face.StopLooking();
+		pear.Face.StopLooking();
+
+		yield return cucumber.WaitTillShrunk();
+
+		yield return peach.WaitTillShrunk();
+
+		yield return pear.WaitTillShrunk();
+
+        yield return new WaitForSeconds(3f);
     }
 
 	IEnumerator BananaScript()
@@ -356,23 +423,23 @@ public class Manager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        yield return Dialogue.Create(peach, "I mean, I guess I would if I didn't have so much social anxiety");
+        yield return Dialogue.Create(peach, "Oh great, now there's more of them.");
 
         pear.Face.LookAt(peach);
 
         yield return new WaitForSeconds(1f);
 
-        yield return Dialogue.Create(pear, "You say that, but what if you don't have social anxiety and just hate everyone you meet?");
+		pear.Face.LookAt(banana);
+        yield return Dialogue.Create(pear, "I don't know, you guys be too crazy for us.");
+		pear.Face.LookAt(peach);
 
-        peach.Face.LookAt(pear);
+        yield return new WaitForSeconds(1.5f);
 
-        yield return new WaitForSeconds(2f);
+		peach.Face.LookAt(pear);
+        yield return Dialogue.Create(peach, "Omg, you're so bad - hahaha.");
 
-        yield return Dialogue.Create(peach, "It's really just that potato that puts me over the edge...");
-
-        peach.Face.StopLooking();
-
-        pear.Face.StopLooking();
+		peach.Face.StopLooking();
+		pear.Face.StopLooking();
 
         yield return new WaitForSeconds(1f);
 
@@ -559,5 +626,20 @@ public class Manager : MonoBehaviour
 			Gizmos.DrawSphere(t.position, 0.25f);
 			Gizmos.DrawRay(t.transform.position + new Vector3(0,0.1f,0), t.forward);
 		}
+	}
+
+
+	List<Coroutine> pending = new List<Coroutine>();
+	void StartCoroutinePending(IEnumerator e)
+	{
+		pending.Add(StartCoroutine(e));
+	}
+
+	IEnumerator WaitForPending()
+	{
+		foreach (var p in pending)
+			yield return p;
+
+		pending.Clear();
 	}
 }
