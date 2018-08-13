@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour 
 {
-    static int currentScene = 2;
+    static int currentScene = 0;
 
 	[Header("Vegetables")]
 	[SerializeField] Vegetable cucumberPrefab;
