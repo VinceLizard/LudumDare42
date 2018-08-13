@@ -101,6 +101,8 @@ public class AudioManager : MonoBehaviour
 		musicInactive = tmp;
 
 		musicInactive.Stop();
+
+		state = State.Playing;
 	}
 
 	/*private IEnumerator FadeIn(AudioClip clip)

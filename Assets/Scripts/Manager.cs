@@ -382,6 +382,7 @@ public class Manager : MonoBehaviour
 
         yield return Dialogue.Create(broccolli, "woop, spoke too soon");
 
+		AudioManager.Singleton.PlayExcitingMusic();
         Stu.Singleton.ToggleThrowing(true);
 
         StartCoroutine(cucumber.Expand(30f, new List<int>() { 0 }));
