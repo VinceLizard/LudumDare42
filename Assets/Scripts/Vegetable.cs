@@ -242,7 +242,7 @@ public class Vegetable : MonoBehaviour
 
     void Explode()
     {
-        Instantiate(explodingVeg);
+        Instantiate(explodingVeg, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
     }
 }

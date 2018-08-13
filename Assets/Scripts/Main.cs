@@ -25,6 +25,8 @@ public class Main : MonoBehaviour
 
 	public void GameOver()
 	{
-		UI.Singleton.ShowGameOver();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        UI.Singleton.ShowGameOver();
 	}
 }

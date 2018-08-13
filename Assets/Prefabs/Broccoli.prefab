@@ -503,11 +503,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ad05d0e50a0854cb1b1d12765d0feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLooking: 0
   lookTarget: {fileID: 0}
   eyesAndLids:
   - {fileID: 0}
   - {fileID: 0}
+  root: {fileID: 0}
+  degreesPerSecond: 240
+  yRotMaxDegrees: 60
+  xRotMaxDegrees: 30
 --- !u!114 &114147384507357160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -565,11 +568,13 @@ MonoBehaviour:
   expandAnchor: {fileID: 4317175853297234}
   maxSize: 1.5
   dialogueAnchor: {fileID: 4723790255070428}
+  lookTargetAnchor: {fileID: 0}
   facePrefab: {fileID: 114383432041178404, guid: 1116e06cd2f674c6b80faa5212d12c59,
     type: 2}
   faceAnchor: {fileID: 4691530126677548}
   animator: {fileID: 95112827275737178}
-  explodingVeg: {fileID: 0}
+  explodingVeg: {fileID: 1579388778669542, guid: 6849baae4810ade44a0df50f9a1c1e07,
+    type: 2}
 --- !u!135 &135206053701842750
 SphereCollider:
   m_ObjectHideFlags: 1
