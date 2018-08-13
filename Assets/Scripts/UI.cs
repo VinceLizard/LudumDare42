@@ -37,6 +37,17 @@ public class UI : MonoBehaviour {
 				break;
 			}
 		}
+
+		if ( Input.GetKeyUp(KeyCode.Plus) || Input.GetKeyUp(KeyCode.KeypadPlus) || (Input.GetKeyUp(KeyCode.Equals) && Input.GetKey(KeyCode.RightShift)))
+		{
+			Time.timeScale += 0.25f;
+			Debug.LogWarning("Time Scale Increased! " + Time.timeScale.ToString() );
+		}
+		else if (Input.GetKeyUp(KeyCode.Minus) || Input.GetKeyUp(KeyCode.KeypadMinus))
+		{
+			Time.timeScale -= 0.25f;
+			Debug.LogWarning("Time Scale Decreased! " + Time.timeScale.ToString());
+		}
 #endif
 	}
 
