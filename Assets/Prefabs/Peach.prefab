@@ -518,7 +518,7 @@ MonoBehaviour:
   expandAnchor: {fileID: 4384098771619682}
   maxSize: 1.5
   dialogueAnchor: {fileID: 4907248153059648}
-  lookTargetAnchor: {fileID: 0}
+  lookTargetAnchor: {fileID: 4198884602200060}
   facePrefab: {fileID: 114304215185689354, guid: a658c817a72e87845966e516221e201e,
     type: 2}
   faceAnchor: {fileID: 4198884602200060}
