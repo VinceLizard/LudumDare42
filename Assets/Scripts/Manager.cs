@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour 
 {
+	public static Manager Singleton;
 	public static  int currentScene = 0;
 
 	[Header("Vegetables")]
@@ -42,6 +43,16 @@ public class Manager : MonoBehaviour
 	Vegetable banana;
 	Vegetable broccolli;
 	Vegetable potato;
+
+	private void Awake()
+	{
+		Singleton = this;
+	}
+
+	private void OnDestroy()
+	{
+		Singleton = null;
+	}
 
 	IEnumerator Start()
 	{
@@ -634,11 +645,29 @@ public class Manager : MonoBehaviour
         GameObject.Destroy(potato.gameObject);
     }
 
+	public Vector3 GetPositionOfTransform(Vegetable vege, Transform t)
+	{
+		if( 
+
+		   t == farLeftPoolSeat ||
+		   t == leftPoolSeat ||
+		   t == middlePoolSeat ||
+		   t  == rightPoolSeat ||
+		   t == farRightPoolSeat
+		  )
+		{
+			return t.position + new Vector3(0,vege.seatHeight,0);
+		}
+		else
+		{
+			return t.position;
+		}
+	}
 
 
 	Vegetable Spawn( Vegetable prefab, Transform spawnAt )
 	{
-		return GameObject.Instantiate(prefab, spawnAt.transform.position, spawnAt.transform.rotation);
+		return GameObject.Instantiate(prefab, GetPositionOfTransform( prefab, spawnAt.transform ), spawnAt.transform.rotation);
 	}
 
 	private void OnDrawGizmos()

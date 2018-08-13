@@ -18,6 +18,7 @@ public class Vegetable : MonoBehaviour
 	[Header("Anchors")]
 	[SerializeField] Transform dialogueAnchor;
 	[SerializeField] Transform lookTargetAnchor;
+	[SerializeField] public float seatHeight = 0f;
 
 	[Header("Face")]
 	[SerializeField] Face facePrefab;
@@ -118,6 +119,7 @@ public class Vegetable : MonoBehaviour
 
 	public IEnumerator JumpTo(Transform dest, bool reverse = false)
 	{
+		var destPos = Manager.Singleton.GetPositionOfTransform(this, dest);
         this.animator.SetBool("isJumping", true);
 		var startPos = this.transform.position;
 		var startRot = this.transform.rotation;
@@ -130,14 +132,14 @@ public class Vegetable : MonoBehaviour
 			float timePassed = Time.time - startTime;
 			if (timePassed >= jumpTime)
 			{
-				this.transform.position = dest.position;
+				this.transform.position = destPos;
 				this.transform.rotation = ProcessQuat(dest.rotation, reverse);
 				break;
 			}
 			else
 			{
 				float lerp = timePassed / jumpTime;
-				this.transform.position = Vector3.Lerp(startPos, dest.position, lerp) + new Vector3(0, Mathf.Sin(lerp * Mathf.PI), 0);
+				this.transform.position = Vector3.Lerp(startPos, destPos, lerp) + new Vector3(0, Mathf.Sin(lerp * Mathf.PI), 0);
 				this.transform.rotation = Quaternion.Slerp(startRot, ProcessQuat(dest.rotation, reverse), lerp);
 				yield return null;
 			}

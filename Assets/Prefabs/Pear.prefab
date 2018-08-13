@@ -520,6 +520,7 @@ MonoBehaviour:
   maxSize: 1.5
   dialogueAnchor: {fileID: 4317858882348988}
   lookTargetAnchor: {fileID: 4544450085747988}
+  seatHeight: 0.1
   facePrefab: {fileID: 114304215185689354, guid: a658c817a72e87845966e516221e201e,
     type: 2}
   faceAnchor: {fileID: 4544450085747988}
