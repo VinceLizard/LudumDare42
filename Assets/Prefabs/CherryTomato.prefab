@@ -379,8 +379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3877aac24640a4d72aed3a5eecfe218e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2
-  turnSpeed: 180
+  walkSpeed: 3
+  turnSpeed: 360
   jumpTime: 0.6
   jumpDelay: 0.4
   painPoints:
