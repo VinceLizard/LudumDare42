@@ -46,12 +46,12 @@ public class Manager : MonoBehaviour
 	{
 		//Time.timeScale = 3f;
         
-    /*
+    
 		yield return CucumberScript(); 
 		yield return TomatoScript(); 
 		yield return PeachStrawberryScript();
 		yield return BananaScript();
-		yield return BroccoliScript();  */
+		yield return BroccoliScript();
         yield return PotatoScript();
 
     }
