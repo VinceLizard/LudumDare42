@@ -83,6 +83,9 @@ public class Manager : MonoBehaviour
 			yield return PotatoScript();
 			currentScene++;
 		}
+
+		yield return null;
+		UI.Singleton.ShowFinished();
     }
 
 	IEnumerator CucumberScript()
@@ -538,35 +541,37 @@ public class Manager : MonoBehaviour
 
         yield return Dialogue.Create(potato, "Hot potato comin' through!");
 
-        StartCoroutine(pear.JumpTo(leftPoolEntrance));
+        StartCoroutinePending(pear.JumpTo(leftPoolEntrance));
     
-        StartCoroutine(peach.JumpTo(rightPoolEntrance));
+		StartCoroutinePending(peach.JumpTo(rightPoolEntrance));
 
         yield return new WaitForSeconds(1f);
 
-        StartCoroutine(pear.WalkTo(lobbyEntrace));
+		StartCoroutinePending(pear.WalkTo(lobbyEntrace));
 
-        StartCoroutine(peach.WalkTo(lobbyEntrace));
+		StartCoroutinePending(peach.WalkTo(lobbyEntrace));
 
-        StartCoroutine(banana.JumpTo(leftPoolEntrance));
+		StartCoroutinePending(banana.JumpTo(leftPoolEntrance));
 
-        StartCoroutine(broccolli.JumpTo(rightPoolEntrance));
+		StartCoroutinePending(broccolli.JumpTo(rightPoolEntrance));
 
         yield return new WaitForSeconds(1f);
 
-        StartCoroutine(banana.WalkTo(lobbyEntrace));
+		StartCoroutinePending(banana.WalkTo(lobbyEntrace));
     
-        StartCoroutine(broccolli.WalkTo(sideDoorEntrace));
+		StartCoroutinePending(broccolli.WalkTo(sideDoorEntrace));
 
-        StartCoroutine(cucumber.JumpTo(leftPoolEntrance));
+		StartCoroutinePending(cucumber.JumpTo(leftPoolEntrance));
     
         yield return potato.JumpTo(middlePoolSeat);
 
-        StartCoroutine(cucumber.WalkTo(lobbyEntrace));
+		StartCoroutinePending(cucumber.WalkTo(lobbyEntrace));
 
         yield return Dialogue.Create(potato, "I'm not too much for you huh?");
 
         yield return new WaitForSeconds(2f);
+
+		yield return WaitForPending();
 
         GameObject.Destroy(cucumber.gameObject);
 

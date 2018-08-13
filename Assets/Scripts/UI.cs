@@ -12,11 +12,13 @@ public class UI : MonoBehaviour {
 	public GameObject gameOverWindow;
 	public Button resetGame;
     public Image sliderBackground;
+	public GameObject finWindow;
 
-	void Awake () 
+	void Awake ()
 	{
 		Singleton = this;
 		gameOverWindow.gameObject.SetActive(false);
+		finWindow.SetActive(false);
 		resetGame.onClick.AddListener(() =>
 		{
 			SceneManager.LoadScene(0);
@@ -28,10 +30,20 @@ public class UI : MonoBehaviour {
 		Singleton = null;
 	}
 
+	public void ShowFinished()
+	{
+		finWindow.gameObject.SetActive(true);
+	}
 
 	public void ShowGameOver()
 	{
-		gameOverWindow.gameObject.SetActive(true);
+		StartCoroutine(ShowGameOverCoro());
 	}
 
+	IEnumerator ShowGameOverCoro()
+	{
+		yield return new WaitForSeconds(4f);
+
+		gameOverWindow.gameObject.SetActive(true);
+	}
 }
