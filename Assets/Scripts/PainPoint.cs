@@ -44,12 +44,38 @@ public class PainPoint : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("Direct HIT");
-		PainAmount -= 1;
-		if(PainAmount <= 0)
+		if (other.gameObject.layer == LayerMask.NameToLayer("Syringe"))
 		{
-			PainAmount = 0;
+			PainAmount -= 1;
+			if(PainAmount <= 0)
+			{
+				StickSyringe(other);
+				PainAmount = 0;
+			}
 		}
+	}
+
+	void StickSyringe(Collider syringe)
+	{
+		syringe.gameObject.GetComponent<OrientToVelocity>().enabled = false;
+		var rb = syringe.gameObject.GetComponent<Rigidbody>();
+		rb.isKinematic = true;
+		syringe.enabled = false;
+
+
+		var painPoint = this.transform;
+
+		var dir = (painPoint.parent.position - painPoint.position);
+		dir.y = 0f;
+		dir.Normalize();
+		dir.y = Random.Range(-0.25f, 0.25f);
+		dir.Normalize();
+
+		syringe.transform.position = painPoint.position + (dir * -0.35f);
+		syringe.transform.forward = dir;
+		syringe.transform.SetParent(painPoint.parent, true);
+
+		GameObject.Destroy(syringe.gameObject, 4f);
 	}
 
 	private void OnDrawGizmos()
