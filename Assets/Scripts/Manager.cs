@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour 
 {
-    static int currentScene = 0;
+	public static  int currentScene = 0;
 
 	[Header("Vegetables")]
 	[SerializeField] Vegetable cucumberPrefab;
@@ -45,7 +45,7 @@ public class Manager : MonoBehaviour
 
 	IEnumerator Start()
 	{
-		//Time.timeScale = 3f;
+		//Time.timeScale = 3f; 
 		AudioManager.Singleton.PlayNormalMusic();
 
         if(currentScene == 0)
@@ -464,13 +464,13 @@ public class Manager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
 		pear.Face.LookAt(banana);
-        yield return Dialogue.Create(pear, "I don't know, you guys be too crazy for us.");
+        yield return Dialogue.Create(pear, "Oh yea, we're crazy.");
 		pear.Face.LookAt(peach);
 
         yield return new WaitForSeconds(1.5f);
 
 		peach.Face.LookAt(pear);
-        yield return Dialogue.Create(peach, "Omg, you're so bad - hahaha.");
+        yield return Dialogue.Create(peach, "Linda, please!");
 
 		peach.Face.StopLooking();
 		pear.Face.StopLooking();

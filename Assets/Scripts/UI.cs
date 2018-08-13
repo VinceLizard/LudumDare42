@@ -25,6 +25,21 @@ public class UI : MonoBehaviour {
 		});
 	}
 
+	private void Update()
+	{
+#if UNITY_EDITOR
+		for (int i = 0; i <= 6; i++)
+		{
+			if (Input.GetKeyUp(KeyCode.Alpha0 + i) && Input.GetKey(KeyCode.LeftControl) )
+			{
+				Manager.currentScene = i;
+				SceneManager.LoadScene(0);
+				break;
+			}
+		}
+#endif
+	}
+
 	void OnDestroy()
 	{
 		Singleton = null;
