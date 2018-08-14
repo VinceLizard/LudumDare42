@@ -113,7 +113,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4782634524707332}
   - component: {fileID: 136826076190818786}
-  - component: {fileID: 54905378441683088}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -210,6 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4721619346370980}
   - component: {fileID: 114524742832010036}
+  - component: {fileID: 54521332914276118}
   m_Layer: 0
   m_Name: Potato
   m_TagString: Untagged
@@ -520,12 +520,12 @@ Transform:
   m_Father: {fileID: 4006938899363258}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!54 &54905378441683088
+--- !u!54 &54521332914276118
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1288466803184330}
+  m_GameObject: {fileID: 1731857925410202}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0

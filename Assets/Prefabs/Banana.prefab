@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 4233870055316730}
   - component: {fileID: 114260004463315938}
   - component: {fileID: 114770085834119842}
+  - component: {fileID: 54776879824777338}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Untagged
@@ -227,7 +228,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4102644946345914}
   - component: {fileID: 136398412071652772}
-  - component: {fileID: 54540844143836912}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -488,12 +488,12 @@ Transform:
   m_Father: {fileID: 4230709414149892}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.8464198, y: -177.28232, z: -153.381}
---- !u!54 &54540844143836912
+--- !u!54 &54776879824777338
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1734901224714502}
+  m_GameObject: {fileID: 1624353392525236}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -567,6 +567,7 @@ MonoBehaviour:
   maxSize: 1.5
   dialogueAnchor: {fileID: 4295387598583676}
   lookTargetAnchor: {fileID: 4792830716120492}
+  seatHeight: 0
   facePrefab: {fileID: 114383432041178404, guid: 1116e06cd2f674c6b80faa5212d12c59,
     type: 2}
   faceAnchor: {fileID: 4792830716120492}
