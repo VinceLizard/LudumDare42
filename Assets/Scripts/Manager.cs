@@ -643,6 +643,8 @@ public class Manager : MonoBehaviour
         yield return potato.WalkTo(gateEntrace);
 
         GameObject.Destroy(potato.gameObject);
+
+        AudioManager.Singleton.PlayNormalMusic();
     }
 
 	public Vector3 GetPositionOfTransform(Vegetable vege, Transform t)
