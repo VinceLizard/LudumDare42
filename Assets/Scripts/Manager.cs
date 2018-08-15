@@ -622,7 +622,7 @@ public class Manager : MonoBehaviour
 
         yield return Dialogue.Create(potato, "Oh no, here comes a big one!!!");
 
-        StartCoroutine(potato.Expand(15f, new List<int>() { 0, 1, 2, 3, 4, 5}));
+        StartCoroutine(potato.Expand(19f, new List<int>() { 0, 1, 2, 3, 4, 5}));
 
         yield return new WaitForSeconds(2f);
 
